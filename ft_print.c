@@ -27,6 +27,8 @@ taille de champ
 conversions : nfge
 arguments à taille variable
 
+à mettre au clair : différence entre null vide et 0
+
 
 INDICATIONS
 Fonctions externes autorisées;  malloc, free, write, va_start, va_arg, va_copy, va_end
