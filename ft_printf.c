@@ -3,9 +3,9 @@
 
 int		ft_printf(const char *, ...)
 {
+	int i = 42;
+  printf("hdgkkrghjk %s jghg. %d jg.   %ih", "dhsgk", 4643, i)
 }
-
-
 
 /*
 INTRO
