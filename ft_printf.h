@@ -3,7 +3,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
-int		ft_printf(const char *, ...);
+typedef	struct	s_flags
+{
+	int
+
+}		t_flags;
+
+int		ft_printf(const char *str, ...);
 
 #endif
