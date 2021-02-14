@@ -7,7 +7,6 @@
 
 typedef	struct	s_flags
 {
-	int
 
 }		t_flags;
 

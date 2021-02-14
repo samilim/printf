@@ -1,8 +1,19 @@
 
 #include "ft_printf.h"
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdarg.h>
 
-void	ft_manage_conversions(const char *str, int i)
+void	ft_putchar_fd(char c, int fd)
 {
+	write(fd, &c, 1);
+}
+
+void		ft_manage_conversions(const char *str, int i)
+{
+	//int count;
+
+	//count = 0;
 	/*voir https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html*/
 
 	if (str[i] == 'c') //prend un unsigned char, prend les char d'espacement en compte
@@ -31,6 +42,7 @@ void	ft_manage_conversions(const char *str, int i)
 	if (str[i] == '%')
 		ft_putchar_fd('%', 1);
 	// + conversion o?
+	//return (count); 
 }
 
 
@@ -46,7 +58,7 @@ int	ft_manage_flags(char *str, int i)
 	count = 0;
 	if (str[i] == '-') // cadre l'argument converti à gauche
 	if (str[i] == '+') //BONUS; imprime systématiquement le signe du nombre
-	       //check si (check si va_arg int est pos ou neg et afficher le signe adéquat
+		   //check si (check si va_arg int est pos ou neg et afficher le signe adéquat
 	if (str[i] = ' ') // si le premier caractère n'est pas un signe, place un espace au début
 	if (str[i] == '0') //pour les conversions numériques complète le début du champ par des 0
 	if (str[i] == '#') /*spécifie un format de sortie différent :
@@ -73,42 +85,45 @@ int	ft_manage_flags(char *str, int i)
 
 int             ft_printf(const char *str, ...)
 {
-        int	i;
-	va_list	args; //Cette liste va servir à naviguer parmis les arguments (qui sont au départ indéfinis tant en nombre qu'en type)
+		int	i;
+		va_list	args; //Cette liste va servir à naviguer parmis les arguments (qui sont au départ indéfinis tant en nombre qu'en type)
 
-        i = 0;
-	va_start(args, str); //initialise la va_liste des args
-        while (str[i])
-        {
-                if (str[i] == '\')
+		i = 0;
+		va_start(args, str); //initialise la va_liste des args
+		while (str[i])
 		{
-			ft_manage_hex();
-			if (!charaspécial)
+			/*if (str[i] == '\')
+			{
+				ft_manage_hex();
+				if (!charaspécial)
 				i++;
-			
+			}*/
+			if (str[i] == '%')
+			{
+				i++;
+				//ft_manage_flags(str, i);
+				//i += ft_manage_flags(str, i);
+				//ft_manage_conditions(str, i);
+				//i += ft_manage_conversions(str, i);
+				i++;  //testonly
+			}
+			else
+			{
+				ft_putchar_fd(str[i], 1);
+				i++;
+			}
 		}
-                if (str[i] == '%')
-		{
-			i++;
-			ft_manage_flags(str, i);
-				i += ft_manage_flags(str, i);
-                        ft_manage_conditions(str, i);
-				i += ft_manage_conversions(str, i);
-		}
-                else
-                        ft_putchar_fd(str[i], 1);
-                i++;
-        }
-	va_end(args);
-        return (i); //nb d'octs lus sans le \0
+		va_end(args);
+		return (i); /*nb d'octs lus sans le \0*/
 }
 
 
 int main()
 {
-	int i = 42;
+	//int i = 42;
 
-	printf("Ceci est un test; %s\n jghg. %d jg.   %ih", "chaine affichée", 4643, i);
+	ft_printf("hello hibou %c !", 'o');
+	//printf("Ceci est un test; %s\n jghg. %d jg.   %ih", "chaine affichée", 4643, i);
 }
 
 
