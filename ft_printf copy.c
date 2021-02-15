@@ -1,66 +1,118 @@
-
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
 
-void	ft_putchar_fd(unsigned char c, int fd)
+int		ft_putchar_fd(unsigned char c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }
 
-void		ft_manage_conversions(const char *str, int i, va_list args)
+int		ft_putstr_fd(const char *s, int fd)
 {
-	//int count;
+	int count;
 
-	//count = 0;
-	//voir https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html
-
-	if (str[i] == 'c') //prend un unsigned char, prend les char d'espacement en compte
-		ft_putchar_fd(va_arg(args, unsigned char), 1);
-	
-	if (str[i] == '%')
-		ft_putchar_fd('%', 1);
-	// + conversion o?
-	//return (count); 
+	count = 0;
+	if (!s)
+		return (0);
+	while (*s)
+	{
+		ft_putchar_fd(*s++, fd);
+		count++;
+	}
+	return (count);
 }
 
+//WIP
+/*
+int		ft_putaddr_fd(void *ptr, int fd)
+{
+	void *addr;
+	int count;
+	
+	(char *)addr = &ptr;
+	count = 0;
+	while (*addr)
+	{
+		ft_putchar_fd(*addr++, 1);
+		count++;
+	}
+	return (count);
+}*/
 
+int		ft_putnbr_fd(int nb, int fd)
+{
+	int count;
 
+	count = 0;
+	if (nb == -2147483648)
+	{
+		write(fd, "-", 1);
+		write(fd, "2", 1);
+		nb = 147483648;
+		count = 10;
+	}
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = nb * -1;
+		count++;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbr_fd((nb / 10), fd);
+		ft_putchar_fd(nb % 10 + '0', fd);
+		count++;
+	}
+	else
+	{
+		ft_putchar_fd(nb + '0', fd);
+		count++;
+	}
+}
+
+int		ft_manage_conversions(const char *str, int i, va_list args)
+{
+	if (str[i] == 'c')
+		return (ft_putchar_fd(va_arg(args, unsigned char), 1));
+	if (str[i] == 's')
+		return (ft_putstr_fd(va_arg(args, const char *), 1));
+	/*if (str[i] == 'p')
+		return (ft_putaddr_fd(va_arg(args, void *), 1));*/
+	if (str[i] == 'd')
+		return (ft_putnbr_fd(va_arg(args, int), 1));
+	if (str[i] == '%')
+		return (ft_putchar_fd('%', 1));
+}
 
 int             ft_printf(const char *str, ...)
 {
 		int	i;
+		int count;
 		va_list	args; //Cette liste va servir à naviguer parmis les arguments (qui sont au départ indéfinis tant en nombre qu'en type)
+		va_start(args, str); //initialise la va_liste des args
 
 		i = 0;
-		va_start(args, str); //initialise la va_liste des args
+		count = 0;
 		while (str[i])
 		{
-			/*if (str[i] == '\')
-			{
-				ft_manage_hex();
-				if (!charaspécial)
-				i++;
-			}*/
 			if (str[i] == '%')
 			{
 				i++;
 				//ft_manage_flags(str, i);
 				//i += ft_manage_flags(str, i);
 				//ft_manage_conditions(str, i);
-				//i += ft_manage_conversions(str, i);
-				ft_manage_conversions(str, i, args); //test only
-				i++;  //testonly
+				count += ft_manage_conversions(str, i,args);
+				i++;
 			}
 			else
 			{
-				ft_putchar_fd(str[i], 1);
+				count += ft_putchar_fd(str[i], 1);
 				i++;
 			}
 		}
 		va_end(args);
-		return (i); /*nb d'octs lus sans le \0*/
+		return (count);
 }
 
 
@@ -68,8 +120,9 @@ int main()
 {
 	//int i = 42;
 
-	ft_printf("hello hibou %c !", 'o');
-	//printf("Ceci est un test; %s\n jghg. %d jg.   %ih", "chaine affichée", 4643, i);
+	printf("%d\n",ft_printf("mon printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d\n", 'X', "hello", -42));
+	printf("%d\n",printf("    printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d\n", 'X', "hello", -42));
+	return 0;
 }
 
 
@@ -81,6 +134,7 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 de la réussite pour ft_printf est un code bien structuré et extensible.
 
 DOC
+//voir https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html
 man 3 printf : https://docs.microsoft.com/fr-fr/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-160
 man 3 stdarg : https://koor.fr/C/cstdarg/cstdarg.w
 kwargs: 

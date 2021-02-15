@@ -1,4 +1,11 @@
  #include <stdio.h>
+ #include <unistd.h>
+
+
+void		ft_putchar_fd(unsigned char c, int fd)
+{
+	write(fd, &c, 1);
+}
 
 int	main()
 {
@@ -9,6 +16,6 @@ int	main()
 	printf("l'addresse de ptr est : %p ", ptr);*/
 
 	int i = 42;
-	printf("hihihihi % y");
+	printf("'%c'", '\t');
 	return 0;
 }

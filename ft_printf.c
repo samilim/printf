@@ -9,13 +9,11 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-void		ft_manage_conversions(const char *str, int i)
+int		ft_manage_conversions(const char *str, int i)
 {
-	//int count;
+	int count;
 
-	//count = 0;
-	/*voir https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html*/
-
+	count = 0;
 	if (str[i] == 'c') //prend un unsigned char, prend les char d'espacement en compte
 		ft_putchar_fd(va_arg(args, unsigned char), 1);
 	if (str[i] == 's')
@@ -42,12 +40,8 @@ void		ft_manage_conversions(const char *str, int i)
 	if (str[i] == '%')
 		ft_putchar_fd('%', 1);
 	// + conversion o?
-	//return (count); 
+	return (count); 
 }
-
-
-
-
 
 int	ft_manage_flags(char *str, int i)
 {
@@ -56,7 +50,7 @@ int	ft_manage_flags(char *str, int i)
 	int	count;
 
 	count = 0;
-	if (str[i] == '-') // cadre l'argument converti à gauche
+	if (str[i] == '-') // -chiffre completera jusqu'a chiffre avec des ' '  0 annulé par -
 	if (str[i] == '+') //BONUS; imprime systématiquement le signe du nombre
 		   //check si (check si va_arg int est pos ou neg et afficher le signe adéquat
 	if (str[i] = ' ') // si le premier caractère n'est pas un signe, place un espace au début
@@ -79,6 +73,9 @@ int	ft_manage_flags(char *str, int i)
 
 }
 
+
+/*COMBO FLAGS
+*/
 
 
 
@@ -135,6 +132,7 @@ Ce projet est d’une difficulté modérée. Il vous permettra d’utiliser les 
 de la réussite pour ft_printf est un code bien structuré et extensible.
 
 DOC
+https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html
 man 3 printf : https://docs.microsoft.com/fr-fr/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-160
 man 3 stdarg : https://koor.fr/C/cstdarg/cstdarg.w
 kwargs: 

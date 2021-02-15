@@ -5,11 +5,13 @@
 # include <stdlib.h>
 # include <stdarg.h>
 
-typedef	struct	s_flags
+typedef	struct 	s_flags
 {
+    int 
+	int
 
-}		t_flags;
+}		        t_flags;
 
-int		ft_printf(const char *str, ...);
+int				ft_printf(const char *str, ...);
 
 #endif
