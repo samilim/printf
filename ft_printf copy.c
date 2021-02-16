@@ -40,35 +40,48 @@ int		ft_putaddr_fd(void *ptr, int fd)
 	return (count);
 }*/
 
-int		ft_putnbr_fd(int nb, int fd)
+int		ft_nb_count(int n)
 {
 	int count;
 
 	count = 0;
+	if (n < 0)
+	{
+		n = n * -1;
+		count++;
+	}
+	while (n >= 10)
+	{
+		n = n / 10;
+		count++;
+	}
+	count++;
+	return (count);
+}
+
+int		ft_putnbr_fd(int nb, int fd)
+{
+	int count;
+
+	count = ft_nb_count(nb);
 	if (nb == -2147483648)
 	{
-		write(fd, "-", 1);
-		write(fd, "2", 1);
-		nb = 147483648;
-		count = 10;
+		write(fd, "-2147483648", 11);
+		return (11);
 	}
 	if (nb < 0)
 	{
 		write(fd, "-", 1);
 		nb = nb * -1;
-		count++;
 	}
 	if (nb >= 10)
 	{
 		ft_putnbr_fd((nb / 10), fd);
 		ft_putchar_fd(nb % 10 + '0', fd);
-		count++;
 	}
 	else
-	{
 		ft_putchar_fd(nb + '0', fd);
-		count++;
-	}
+	return (count);
 }
 
 int		ft_manage_conversions(const char *str, int i, va_list args)
@@ -79,10 +92,12 @@ int		ft_manage_conversions(const char *str, int i, va_list args)
 		return (ft_putstr_fd(va_arg(args, const char *), 1));
 	/*if (str[i] == 'p')
 		return (ft_putaddr_fd(va_arg(args, void *), 1));*/
-	if (str[i] == 'd')
+	if (str[i] == 'd' || str[i] == 'i')
 		return (ft_putnbr_fd(va_arg(args, int), 1));
 	if (str[i] == '%')
 		return (ft_putchar_fd('%', 1));
+	else
+		return (0);
 }
 
 int             ft_printf(const char *str, ...)
@@ -96,13 +111,13 @@ int             ft_printf(const char *str, ...)
 		count = 0;
 		while (str[i])
 		{
-			if (str[i] == '%')
+			if (str[i] == '%') //gerer si % dernier car
 			{
 				i++;
 				//ft_manage_flags(str, i);
 				//i += ft_manage_flags(str, i);
 				//ft_manage_conditions(str, i);
-				count += ft_manage_conversions(str, i,args);
+				count += ft_manage_conversions(str, i, args);
 				i++;
 			}
 			else
@@ -118,14 +133,15 @@ int             ft_printf(const char *str, ...)
 
 int main()
 {
-	//int i = 42;
+	int i = 42;
+	int *ptr;
 
-	printf("%d\n",ft_printf("mon printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d\n", 'X', "hello", -42));
-	printf("%d\n",printf("    printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d\n", 'X', "hello", -42));
+	ptr = &i;
+	//printf("%d\n",ft_printf("mon printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d, affiche adresse de i : %p\n", 'X', "hello", -95, ptr));
+	printf("addr = %p\n", ptr);
+	//printf("%d\n",printf("    printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d, affiche adresse de i : %p\n", 'X', "hello", -95, ptr));
 	return 0;
 }
-
-
 
 /*
 INTRO
