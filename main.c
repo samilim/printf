@@ -1,5 +1,5 @@
- #include <stdio.h>
- #include <unistd.h>
+#include <stdio.h>
+#include <unistd.h>
 
 
 void		ft_putchar_fd(unsigned char c, int fd)
@@ -16,6 +16,8 @@ int	main()
 	printf("l'addresse de ptr est : %p ", ptr);*/
 
 	int i = 42;
-	printf("'%c'", '\t');
+	printf("hello %-6c", 'i');
 	return 0;
 }
+
+//%0-15.6d
