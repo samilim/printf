@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/18 16:52:16 by salimon          ###   ########.fr       */
+/*   Updated: 2021/02/18 17:17:28 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,22 +47,19 @@ t_flags	ft_init_flags(t_flags flags)
 {
 //INDICATEURS
     flags.minus = 0;
-    flags.sign = 0; //+ : imprime systématiquement le signe du nombre. BONUS
-	flags.zero = 0; ///pour les conversions numériques complète le début du champ par des 0. Annulé par -
-    flags.space = 0; //si le premier caractère n'est pas un signe, place un espace au début. BONUS
-    flags.prefix = 0; //# : BONUS
+    flags.sign = 0;
+	flags.zero = 0;
+    flags.space = 0;
+    flags.prefix = 0;
 //LARGEUR
-    flags.width = 0; //controle le nb minimal de caracteres affches
-    flags.width_spec = 0; //* Si la spécification de la largeur ou de la precision est un astérisque (*), un argument int issu de la liste d’arguments fournit la valeur. L’argument width doit précéder la valeur mise en forme dans la liste des arguments, comme illustré dans l’exemple suivant : printf("%0*d", 5, 3); /* 00003 is output */
-        //Une valeur width manquante ou petite dans une spécification de conversion n’entraîne pas la troncation d’une valeur de sortie. Si le résultat d’une conversion est plus large que la valeur width , le champ peut être développé pour contenir le résultat de la conversion.
+    flags.width = 0;
+    flags.width_spec = 0;
 //PRECISION
     flags.precision = -1;
     flags.precision_spec = 0;
 //BONUS
-    //l
-    int //ll 
-    int //h
-    int //hh
+    flags.l = 0;
+    flags.h = 0;
 	return (flags);
 }
 
