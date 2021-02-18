@@ -16,7 +16,8 @@ int	main()
 	printf("l'addresse de ptr est : %p ", ptr);*/
 
 	int i = 42;
-	printf("hello %-6c", 'i');
+	//printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj");
+	printf("hi %u", -2);
 	return 0;
 }
 

@@ -12,7 +12,7 @@ typedef	struct 	s_flags
     int sign; //+ : imprime systématiquement le signe du nombre. BONUS
 	int zero; ///pour les conversions numériques complète le début du champ par des 0. Annulé par -
     int space; //si le premier caractère n'est pas un signe, place un espace au début. BONUS
-    int prefix; //BONUS
+    int prefix; //BONUS # : compatible avec conv gefxX
 //LARGEUR
     unsigned int width; //controle le nb minimal de caracteres affches
     unsigned int width_spec; //* Si la spécification de la largeur ou de la precision est un astérisque (*), un argument int issu de la liste d’arguments fournit la valeur. L’argument width doit précéder la valeur mise en forme dans la liste des arguments, comme illustré dans l’exemple suivant : printf("%0*d", 5, 3); /* 00003 is output */
