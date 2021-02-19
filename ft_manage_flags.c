@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_manage_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/18 17:17:26 by salimon          ###   ########.fr       */
+/*   Updated: 2021/02/19 12:12:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char    ft_is_type(const char *str, int i)
 
 int	ft_manage_minus(t_flags flags)
 {
-	if (flags.zero)
-		flags.zero = 0;
-	return (flags.minus);
+	flags.zero = 0;
+	flags.minus = 1;
+	return (flags);
 }
 
 int	ft_manage_zero(t_flags flags)

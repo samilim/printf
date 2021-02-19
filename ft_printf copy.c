@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/18 17:17:28 by salimon          ###   ########.fr       */
+/*   Updated: 2021/02/19 11:06:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		ft_manage_conversions(const char *str, int i, va_list args)
 
 t_flags	ft_init_flags(t_flags flags)
 {
+	t_flags	flags;
 //INDICATEURS
     flags.minus = 0;
     flags.sign = 0;
@@ -67,21 +68,22 @@ int             ft_printf(const char *str, ...)
 {
 		int	i;
 		int count;
+		t_flags	flags;
 		va_list	args;
-		va_start(args, str);
 
 		i = 0;
 		count = 0;
+		va_start(args, str);
 		while (str[i])
 		{
-			if (str[i] == '%') //gerer si % dernier caractere
+			if (str[i] == '%')
 			{
 				flags = ft_init_flags(flags);
 				i++;
-				flags = ft_manage_flags(str, i, flags);
+				flags = ft_manage_flags(str, i, flags); //on va jusquau type pour recuperer tous les flags
 				while (!ft_is_type(str, i))
 					i++;
-				count += ft_manage_conversions(str, i, args);
+				count += ft_manage_conversions(str, i, args); //on printf et recupere le count
 				i++;
 			}
 			else

@@ -17,7 +17,11 @@ int	main()
 
 	int i = 42;
 	//printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj");
-	printf("hi %u", -2);
+	printf("Conversion c :\n");
+	printf("width 5 minus : '%-5c'\n", 'X');
+	printf("width 5 sans minus : '%5c'\n", 'X');
+	printf("width *3 minus : '%-*c'\n", 3, 'X');
+	printf("width *3 sans minus : '%*c'\n", 3, 'X');
 	return 0;
 }
 
