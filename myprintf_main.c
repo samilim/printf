@@ -1,11 +1,6 @@
+#include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
-
-
-void		ft_putchar_fd(unsigned char c, int fd)
-{
-	write(fd, &c, 1);
-}
 
 int	main()
 {
@@ -15,15 +10,18 @@ int	main()
 	ptr = "56";
 	printf("l'addresse de ptr est : %p ", ptr);*/
 
-	int i = 42;
+	//
+    
+    int i = 42;
 	//printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj");
 	printf("Conversion c :\n");
-	printf("c est compatible avec les flags - et width\n");
-	printf("width 5 minus : --------------'%-5c'\n", 'X');
-	printf("width 5 sans minus : ---------'%5c'\n", 'X');
-	printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
-	printf("width *3 sans minus : --------'%*c'\n", 3, 'X');
-	printf("%c",'\n');
+	ft_printf("c est compatible avec les flags - et width\n");
+	/*ft_printf("width 5 minus : --------------'%-5c'\n", 'X');
+	ft_printf("width 5 sans minus : ---------'%5c'\n", 'X');
+	ft_printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
+	ft_printf("width *3 sans minus : --------'%*c'\n", 3, 'X');*/
+    ft_printf("%c",'a');
+	ft_printf("%c",'\n');
 
 	/*printf("Conversion s :\n");
 	printf("width 5 minus : --------------'%-5s'\n", "Hello world");
@@ -42,4 +40,4 @@ int	main()
 	return 0;
 }
 
-//%0-15.6d
+//gcc ft_conversion_c.c ft_manage_flags.c ft_printf\ copy.c ft_printf_utils.c ft_printf.h myprintf_main.c

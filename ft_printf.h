@@ -13,13 +13,17 @@ typedef	struct 	s_flags
     int space;
     int prefix;
     int width;
-    int width_spec;
     int precision;
-    int precision_spec;
     int l; //gere aussi ll 
     int h; //gere aussi hh
 }		        t_flags;
 
 int				ft_printf(const char *str, ...);
+char            ft_is_type(const char *str, int i);
+t_flags         ft_manage_flags(const char *str, int i, t_flags flags, va_list args);
+int             ft_conversion_c(unsigned char c, int fd, t_flags flags);
+size_t	ft_strlen(const char *s);
+int		ft_atoi(const char *nb);
+int		ft_isdigit(int c);
 
 #endif

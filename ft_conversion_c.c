@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_c.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:26 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/18 14:40:49 by salimon          ###   ########.fr       */
+/*   Updated: 2021/02/21 22:34:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,15 @@ int		ft_conversion_c(unsigned char c, int fd, t_flags flags)
 {
 	int count;
 
-	if (!(flags.minus))
-	write(fd, &c, 1);
 	count = 1;
 	if (flags.minus)
+		write(fd, &c, 1);
+	while (count <= flags.width)
 	{
-		if (flags.width_spec)
-		{
-
-		}
-		else
-			while (count <= flags.width)
-			{
-				write (fd, ' ', 1);
-				count++;
-			}
+		write (fd, " ", 1);
+		count++;
 	}
+	if (!flags.minus)
+		write(fd, &c, 1);
 	return (count);
 }
