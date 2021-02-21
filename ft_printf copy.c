@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/21 22:44:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/21 23:13:10 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_putchar_fd(unsigned char c, int fd)
 int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 {
 	if (str[i] == 'c')
-		return (ft_conversion_c(va_arg(args, unsigned char), 1, flags));
+		return (ft_conversion_c(va_arg(args, int), 1, flags));
 	/*if (str[i] == 's')
 		return (ft_conversion_s(va_arg(args, const char *), 1));
 	if (str[i] == 'p')

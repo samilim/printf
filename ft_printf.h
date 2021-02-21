@@ -21,9 +21,9 @@ typedef	struct 	s_flags
 int				ft_printf(const char *str, ...);
 char            ft_is_type(const char *str, int i);
 t_flags         ft_manage_flags(const char *str, int i, t_flags flags, va_list args);
-int             ft_conversion_c(unsigned char c, int fd, t_flags flags);
-size_t	ft_strlen(const char *s);
-int		ft_atoi(const char *nb);
-int		ft_isdigit(int c);
+int				ft_conversion_c(unsigned char c, int fd, t_flags flags);
+size_t          ft_strlen(const char *s);
+int				ft_atoi(const char *nb);
+int				ft_isdigit(int c);
 
 #endif

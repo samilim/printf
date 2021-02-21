@@ -12,15 +12,16 @@ int	main()
 
 	//
     
-    int i = 42;
-	//printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj");
-	printf("Conversion c :\n");
+    //int i = 42;
+	ft_printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj\n");
+    ft_printf("hello %s", "hello hey hibou coucourehgekj\n");
+	ft_printf("Conversion c :\n");
 	ft_printf("c est compatible avec les flags - et width\n");
-	/*ft_printf("width 5 minus : --------------'%-5c'\n", 'X');
+	ft_printf("width 5 minus : --------------'%-5c'\n", 'X');
 	ft_printf("width 5 sans minus : ---------'%5c'\n", 'X');
 	ft_printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
-	ft_printf("width *3 sans minus : --------'%*c'\n", 3, 'X');*/
-    ft_printf("%c",'a');
+	ft_printf("width *3 sans minus : --------'%*c'\n", 3, 'X');
+    ft_printf("%c",'X');
 	ft_printf("%c",'\n');
 
 	/*printf("Conversion s :\n");
