@@ -25,6 +25,7 @@ int	main()
 	printf("width *3 sans minus : --------'%*c'\n", 3, 'X');
 	printf("%c",'\n');*/
 
+/*
 	printf("Conversion s :\n");
 	printf("s est compatible avec les flags -, width et .\n");
 	printf("width 5 minus : -----------------'%-5s'\n", "Hello world");
@@ -41,8 +42,37 @@ int	main()
 	printf("precision 5 width 20 : ----------'%20.5s'\n", "Hello world");
 	printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world");
 	printf("%c",'\n');
+	*/
 
-	/*printf("Conversion i et d :\n");*/
+	printf("Conversion p :\n");
+	printf("p est compatible avec les flags - et width\n");
+	printf("width 5 minus : -----------------'%-5p'\n", "Hello world");
+	printf("width 5 sans minus : ------------'%5p'\n", "Hello world");
+	printf("width *3 minus : ----------------'%-*p'\n", 3, "Hello world");
+	printf("width *3 sans minus : -----------'%*p'\n", 3, "Hello world");
+	printf("width 25 minus : ----------------'%-25p'\n", "Hello world");
+	printf("width 25 sans minus : -----------'%25p'\n", "Hello world");
+	printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
+	printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
+	printf("%c",'\n');
+/*
+	printf("Conversion i et d :\n");
+	printf("i et d sont compatibles avec les flags -, width et .\n");
+	printf("width 5 minus : -----------------'%-5i'\n", i);
+	printf("width 5 sans minus : ------------'%5i'\n", i);
+	printf("width *3 minus : ----------------'%-*i'\n", 3, i);
+	printf("width *3 sans minus : -----------'%*d'\n", 3, i);
+	printf("width 25 minus : ----------------'%-25d'\n", i);
+	printf("width 25 sans minus : -----------'%25d'\n", i);
+	printf("width *30 minus : ---------------'%-*d'\n", 30, i);
+	printf("width *30 sans minus : ----------'%*d'\n", 30, i);
+	printf("precision 3 : -------------------'%.3d'\n", i);
+	printf("precision 33 : ------------------'%.33d'\n", i);
+	printf("precision 5 width 2 : -----------'%2.5i'\n", i);
+	printf("precision 5 width 20 : ----------'%20.5d'\n", i);
+	printf("minus precision 5 width 20 : ----'%-20.5d'\n", i);
+	printf("%c",'\n');
+*/
 	return 0;
 }
 
