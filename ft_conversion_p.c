@@ -6,37 +6,75 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:06:56 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/23 04:11:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/23 20:47:13 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putaddr(unsigned int addr, int fd)
+/*
+char	*ft_delete_zero(char *buf)
 {
-    char buf[(sizeof(addr) * 2) + 2];
-	const char *base_hex;
-    size_t i;
+	char res[sizeof(buf)];
+	unsigned int i;
+	unsigned int j;
 
 	i = 0;
-    buf[0] = '0';
-    buf[1] = 'x';
-	base_hex = "0123456789abcdef";
-    while (i < sizeof(addr) * 2)
-	{
-        buf[i + 2] = base_hex[(addr >> ((sizeof(addr) * 2 - 1 - i) * 4)) & 0xf];
+	j = 0;
+	while (buf[i] == '0' && i < sizeof(buf))
 		i++;
-    }
-    write(fd, buf, sizeof(buf));
+	while (i < sizeof(buf))
+	{
+		res[j] = buf[i];
+		i++;
+		j++;
+	}
+	return (res);
+}*/
+
+void	ft_putaddr(unsigned long long int addr, int fd)
+{
+	int i;
+	const char *base_hex;
+    char buf[25];
+
+	i = sizeof(buf) - 1;
+	base_hex = "0123456789abcdef";
+	while (i >= 0)
+	{
+		buf[i] = base_hex[(addr % 16)];
+		addr = addr / 16;
+		i--;
+	}
+	i = 0;
+	write(fd, "0x", 2);
+	while (buf[i] == '0' && i < sizeof(buf))
+		i++;
+	while (buf[i + 1])
+		write(1, &buf[i++], 1);
 }
+/*
+unsigned long long int	ft_manageptr(unsigned long long int ptr)
+{
+	unsigned long long int res;
+	char *addr;
+	char *addr_without_zero;
+	int 	i;
+
+	addr = ft_itoa(ptr);
+	while(addr[i] == '0')
+		i++;
+	addr_without_zero = ft_substr(addr, i, ft_strlen(addr));
+	res = atoi(addr_without_zero);
+	return (res);
+}*/
 
 int		ft_conversion_p(void *ptr, int fd, t_flags flags)
 {
-	unsigned int addr;
+	unsigned long long int addr;
 	int count;
 	int	len;
 	
-	addr = (unsigned int)ptr;
+	addr = (unsigned long long int)ptr;
 	count = 0;
 	len = ft_strlen(ft_itoa(addr));
 	if (flags.minus)

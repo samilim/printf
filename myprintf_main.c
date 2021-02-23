@@ -32,8 +32,8 @@ int	main()
 	ft_printf("precision 5 width 2 : -----------'%2.5s'\n", "Hello world");
 	ft_printf("precision 5 width 20 : ----------'%20.5s'\n", "Hello world");
 	ft_printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world");
-	ft_printf("%c",'\n');*/
-	
+	ft_printf("%c",'\n');
+	*/
 	ft_printf("MY PRINTF\n");
 	ft_printf("Conversion p :\n");
 	ft_printf("l'addresse de ptr est : %p\n", ptr);
@@ -50,6 +50,7 @@ int	main()
 
 	printf("PRINTF\n");
 	printf("Conversion p :\n");
+	printf("l'addresse de ptr est : %p\n", ptr);
 	printf("p est compatible avec les flags - et width\n");
 	printf("width 5 minus : -----------------'%-5p'\n", "Hello world");
 	printf("width 5 sans minus : ------------'%5p'\n", "Hello world");
@@ -60,7 +61,6 @@ int	main()
 	printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
 	printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
 	printf("%c",'\n');
-
 
 	//printf("Conversion i et d :\n");*/
 	return 0;
