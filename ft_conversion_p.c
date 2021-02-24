@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:06:56 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/23 20:47:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/23 21:03:02 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_putaddr(unsigned long long int addr, int fd)
 {
 	int i;
 	const char *base_hex;
-    char buf[25];
+    char buf[ft_strlen(ft_llitoa(addr))];
 
 	i = sizeof(buf) - 1;
 	base_hex = "0123456789abcdef";
@@ -49,7 +49,7 @@ void	ft_putaddr(unsigned long long int addr, int fd)
 	write(fd, "0x", 2);
 	while (buf[i] == '0' && i < sizeof(buf))
 		i++;
-	while (buf[i + 1])
+	while (buf[i])
 		write(1, &buf[i++], 1);
 }
 /*
@@ -76,7 +76,7 @@ int		ft_conversion_p(void *ptr, int fd, t_flags flags)
 	
 	addr = (unsigned long long int)ptr;
 	count = 0;
-	len = ft_strlen(ft_itoa(addr));
+	len = ft_strlen(ft_llitoa(addr));
 	if (flags.minus)
 		ft_putaddr(addr, 1);
 	while (flags.width > 0 && ((count + len) <= flags.width))
@@ -86,5 +86,5 @@ int		ft_conversion_p(void *ptr, int fd, t_flags flags)
 	}
 	if (!flags.minus)
 		ft_putaddr(addr, 1);
-	return (count + len);
+	return (count + len - 1);
 }

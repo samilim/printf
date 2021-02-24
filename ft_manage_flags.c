@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/22 02:12:45 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 00:29:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,11 @@ t_flags ft_manage_flags(const char *str, int i, t_flags flags, va_list args)
 		else if (str[i] == '-')
 			flags = ft_manage_minus(flags);
 		else if (str[i] == '+')	//BONUS; imprime systématiquement le signe du nombre
+		{
 			flags.sign = 1;
-		else if (str[i] == ' ')	// si le premier caractère n'est pas un signe, place un espace au début
+			flags.space = 0;
+		}
+		else if (str[i] == ' ' && !flags.sign)	// si le premier caractère n'est pas un signe, place un espace au début
 			flags.space = 1;
 		else if (str[i] == '#')	/*spécifie un format de sortie différent : pour o, le premier chiffre sera 0, pour x ou X,  0x ou 0X sera ajouté si le résultat est non nul, pour e,E,f,g,et G, la sortie comportera toujours un point décimal, pour g et G, les 0 de terminaison seront conservés.*/
 			flags.prefix = 1;

@@ -24,10 +24,13 @@ t_flags         ft_manage_flags(const char *str, int i, t_flags flags, va_list a
 int				ft_conversion_c(unsigned char c, int fd, t_flags flags);
 int             ft_conversion_s(const char *s, t_flags flags);
 int             ft_conversion_p(void *ptr, int fd, t_flags flags);
+int             ft_conversion_num(int nb, int fd, t_flags flags);
 size_t          ft_strlen(const char *s);
 int				ft_atoi(const char *nb);
-char			*ft_itoa(long long int n);
+char			*ft_itoa(int n);
+char			*ft_llitoa(long long int n);
 int				ft_isdigit(int c);
+char            *ft_strdup(const char *src);
 char            *ft_substr(char const *str, unsigned int start, size_t len);
 int             ft_putchar_fd(unsigned char c, int fd);
 
