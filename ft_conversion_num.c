@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 18:10:50 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 18:47:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	ft_div_nb(int nb)
 	if (nb < 0)
 	{
 		nb = nb * -1;
-		count++;
 	}
 	while (nb >= 10)
 	{
@@ -48,32 +47,8 @@ int	ft_count_byte(int nb, t_flags flags)
 	return (count + f);
 }
 
-char*ft_manage_buffer(char *buf, int i)
+int		ft_manage_postnb(char *buf, int nb, int i, int nb_len, t_flags flags)
 {
-
-	return (buf);
-}
-
-int	ft_conversion_num(int nb, int fd, t_flags flags)
-{
-	int len;
-	int i;
-	int prec_i;
-	int nb_len;
-	char *buf;
-	char *nb_pos;
-
-	len = ft_count_byte(nb, flags);
-	i = 0;
-	prec_i = 0;
-	if (flags.precision > ft_div_nb(nb))
-		nb_len = flags.precision;
-	else
-		nb_len = ft_div_nb(nb);
-	buf = malloc(sizeof(char) * (len + 1));
-	if (!buf)
-		return (0);
-	nb_pos = ft_itoa_noneg(nb);
 	if (flags.space && (nb >= 0))
 		buf[i++] = ' ';
 	if (flags.space && nb < 0)
@@ -92,6 +67,19 @@ int	ft_conversion_num(int nb, int fd, t_flags flags)
 		buf[i++] = '+';
 	if (nb < 0)
 		buf[i++] = '-';
+	return (i);
+}
+
+char	*ft_manage_buffer(int nb, char* nb_pos, int nb_len, char *buf, t_flags flags)
+{
+	int i;
+	int len;
+	int prec_i;
+
+	i = 0;
+	len = ft_count_byte(nb, flags);
+	prec_i = 0;
+	i = ft_manage_postnb(buf, nb, i, nb_len, flags);
 	while ((ft_div_nb(nb) + prec_i) < flags.precision)
 	{
 		buf[i++] = '0';
@@ -103,7 +91,27 @@ int	ft_conversion_num(int nb, int fd, t_flags flags)
 		while (i < len)
 			buf[i++] = ' ';
 	buf[i] = '\0';
-	write (fd, buf, len);
+	return (buf);
+}
+
+int		ft_conversion_num(int nb, int fd, t_flags flags)
+{
+	int len;
+	int nb_len;
+	char *buf;
+	char *nb_pos;
+
+	nb_pos = ft_itoa_noneg(nb);
+	len = ft_count_byte(nb, flags);
+	buf = malloc(sizeof(char) * (len + 1));
+	if (!buf)
+		return (0);
+	if (flags.precision > ft_div_nb(nb))
+		nb_len = flags.precision;
+	else
+		nb_len = ft_div_nb(nb);
+	buf = ft_manage_buffer(nb, nb_pos, nb_len, buf, flags);
+	write (fd, buf, len + 1);
 	free(buf);
 	return (len);
 }
