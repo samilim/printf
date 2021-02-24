@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 19:22:50 by user42            #+#    #+#             */
-/*   Updated: 2021/02/24 02:37:31 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 21:05:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,25 +85,5 @@ char			*ft_itoa_noneg(int n)
 		count--;
 	}
 	nb[ft_strlen(nb)] = '\0';
-	return (ft_create_nb(nb, n, i, count));
-}
-
-char			*ft_llitoa(long long int n)
-{
-	unsigned int	i;
-	unsigned int	count;
-	char			*nb;
-
-	count = ft_count(n);
-	if (!(nb = (char *)malloc(sizeof(char) * (count + 1))))
-		return (NULL);
-	i = 0;
-	if (n < 0)
-	{
-		nb[i] = '-';
-		i++;
-		n = n * -1;
-	}
-	nb[count] = '\0';
 	return (ft_create_nb(nb, n, i, count));
 }

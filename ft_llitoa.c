@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 19:22:50 by user42            #+#    #+#             */
-/*   Updated: 2021/02/23 19:23:44 by user42           ###   ########.fr       */
+/*   Created: 2021/02/24 21:04:47 by user42            #+#    #+#             */
+/*   Updated: 2021/02/24 21:39:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_count(int n)
+static int		ft_count(long long int n)
 {
 	int i;
 
@@ -30,7 +30,7 @@ static int		ft_count(int n)
 	return (i);
 }
 
-static char		*ft_create_nb(char *nb, int n, unsigned int i,
+static char		*ft_create_nb(char *nb, long long int n, unsigned int i,
 				unsigned int count)
 {
 	unsigned int len;
@@ -45,7 +45,7 @@ static char		*ft_create_nb(char *nb, int n, unsigned int i,
 	return (nb);
 }
 
-char			*ft_itoa(long long int n)
+char			*ft_llitoa(long long int n)
 {
 	unsigned int	i;
 	unsigned int	count;

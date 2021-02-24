@@ -6,13 +6,13 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 18:47:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 20:29:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_div_nb(int nb)
+static int	ft_div_nb(int nb)
 {
 	int count;
 
@@ -30,7 +30,7 @@ int	ft_div_nb(int nb)
 	return (count);
 }
 
-int	ft_count_byte(int nb, t_flags flags)
+static int	ft_count_byte(int nb, t_flags flags)
 {
 	int count;
 	int f;
@@ -47,7 +47,7 @@ int	ft_count_byte(int nb, t_flags flags)
 	return (count + f);
 }
 
-int		ft_manage_postnb(char *buf, int nb, int i, int nb_len, t_flags flags)
+static int		ft_manage_postnb(char *buf, int nb, int i, int nb_len, t_flags flags)
 {
 	if (flags.space && (nb >= 0))
 		buf[i++] = ' ';
@@ -70,7 +70,7 @@ int		ft_manage_postnb(char *buf, int nb, int i, int nb_len, t_flags flags)
 	return (i);
 }
 
-char	*ft_manage_buffer(int nb, char* nb_pos, int nb_len, char *buf, t_flags flags)
+static char	*ft_manage_buffer(int nb, char* nb_pos, int nb_len, char *buf, t_flags flags)
 {
 	int i;
 	int len;
@@ -101,6 +101,7 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	char *buf;
 	char *nb_pos;
 
+	//alloc et free nb_pos
 	nb_pos = ft_itoa_noneg(nb);
 	len = ft_count_byte(nb, flags);
 	buf = malloc(sizeof(char) * (len + 1));

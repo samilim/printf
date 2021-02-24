@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 00:37:46 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 20:06:18 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 		return (ft_conversion_p(va_arg(args, void *), 1, flags));
 	if (str[i] == 'd' || str[i] == 'i')
 		return (ft_conversion_num(va_arg(args, int), 1, flags));
-	/*if (str[i] == 'u')
-		return (ft_conversion_u(va_arg(args, int), 1));
-	if (str[i] == 'x' || str[i] == 'X')
+	if (str[i] == 'u')
+		return (ft_conversion_u(va_arg(args, long long int), 1, flags));
+	/*if (str[i] == 'x' || str[i] == 'X')
 		return (ft_conversion_x(va_arg(args, int), 1)); affiche l'hexa en min ou maj
 	if (str[i] == 'n') Ecrit dans l'argument, le nombre de caractères écrits jusque là par printf. Ne convertit pas d'arguments
 		return (ft_conversion_n(va_arg(args, int *), 1));
@@ -90,19 +90,6 @@ int             ft_printf(const char *str, ...)
 		return (count);
 }
 
-/*
-int main()
-{
-	int i = 42;
-	int *ptr;
-
-	ptr = &i;
-	//printf("%d\n",ft_printf("mon printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d, affiche adresse de i : %p\n", 'X', "hello", -95, ptr));
-	printf("addr = %p\n", ptr);
-	//printf("%d\n",printf("    printf \taffiche X : %c, affiche prct : %%, affiche hello : %s, affiche -42 : %d, affiche adresse de i : %p\n", 'X', "hello", -95, ptr));
-	return 0;
-}
-*/
 /*
 DOC
 //voir https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html
