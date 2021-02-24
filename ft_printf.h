@@ -29,6 +29,7 @@ size_t          ft_strlen(const char *s);
 int				ft_atoi(const char *nb);
 char			*ft_itoa(int n);
 char			*ft_llitoa(long long int n);
+char			*ft_itoa_noneg(int n);
 int				ft_isdigit(int c);
 char            *ft_strdup(const char *src);
 char            *ft_substr(char const *str, unsigned int start, size_t len);

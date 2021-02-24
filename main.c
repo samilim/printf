@@ -74,14 +74,17 @@ int	main()
 	printf("%c",'\n');
 */
 
+
 	printf("Conversion i et d :\n");
 	printf("i et d sont compatibles avec les flags '-' | width | '.' | '+' |  ' ' | '0'\n");
 	printf("width 5 minus : -----------------'%-5i'\n", i);
-	printf("width 5 sans minus : ------------'%5i'\n", i);
+	printf("width 5 : -----------------------'%5i'\n", i);
 	printf("width 5 spc zero : --------------'% 05i'\n", i);
 	printf("width *3 minus space : ----------'% -*i'\n", 3, i);
-	printf("width *3 sans minus + : ---------'%+*d'\n", 3, i);
+	printf("width *3 + : --------------------'%+*d'\n", 3, i);
 	printf("width 25 minus : ----------------'%-25d'\n", i);
+	printf("width 25 minus + : --------------'%-+25d'\n", i);
+	printf("width 25 0 : --------------------'%025d'\n", i);
 	printf("width 25 sans minus : -----------'%25d'\n", i);
 	printf("width 25 sans minus spc : -------'% 25d'\n", i);
 	printf("width *30 minus : ---------------'%-*d'\n", 30, i);
@@ -89,8 +92,8 @@ int	main()
 	printf("precision 3 : -------------------'%.3d'\n", i);
 	printf("precision 33 spc : --------------'% .33d'\n", i);
 	printf("precision 33 zero + : -----------'%+0.33d'\n", i);
-	printf("precision 33 minus + : -----------'%+-.33d'\n", i);
-	printf("precision 33 minus spc : -----------'% -.33d'\n", i);
+	printf("precision 33 minus + : ----------'%+-.33d'\n", i);
+	printf("precision 33 minus spc : --------'% -.33d'\n", i);
 	printf("precision 1 width 2 : -----------'%2.1i'\n", i);
 	printf("precision 1 width 4 : -----------'%4.1i'\n", i);
 	printf("precision 5 width 2 zero : ------'%02.5i'\n", i);
@@ -98,9 +101,10 @@ int	main()
 	printf("precision 5 width 20 zero : -----'%020.5d'\n", i);
 	printf("minus precision 5 width 20 + : --'%-+20.5d'\n", i);
 	printf("minus precision 3 + : -----------'%+.3d'\n", 0);
-	printf("minus precision 3 + spc : -------'%0.7d'\n", -5);
-	printf("minus precision 3 + spc : -------'%010.7d'\n", -5);
+	printf("zero precision 7 : --------------'%0.7d'\n", -5);
+	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	printf("%c",'\n');
+
 	return 0;
 }
 
