@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 22:12:36 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 22:42:58 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	ft_count_byte(long long int nb, t_flags flags)
 	return (count);
 }
 
-static int		ft_manage_postnb(char *buf, long long int nb, int i, int nb_len, t_flags flags)
+static int		ft_manage_postnb(char *buf, int i, int nb_len, t_flags flags)
 {
 	if (!flags.minus)
 	{
@@ -77,7 +77,7 @@ static char	*ft_manage_buffer(long long int nb, char* nb_pos, int nb_len, char *
 	i = 0;
 	len = ft_count_byte(nb, flags);
 	prec_i = 0;
-	i = ft_manage_postnb(buf, nb, i, nb_len, flags);
+	i = ft_manage_postnb(buf, i, nb_len, flags);
 	while ((ft_div_nb(nb) + prec_i) < flags.precision)
 	{
 		buf[i++] = '0';

@@ -104,7 +104,7 @@ int	main()
 	printf("zero precision 7 : --------------'%0.7d'\n", -5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	printf("%c",'\n');*/
-
+/*
 	printf("Conversion u :\n");
 	printf("u est compatibles avec les flags '-' | width | '.' | '0'\n");
 	printf("width 5 minus : -----------------'%-5u'\n", i);
@@ -133,7 +133,39 @@ int	main()
 	printf("minus precision 3 : -------------'%.3u'\n", 0);
 	printf("zero precision 7 : --------------'%0.7u'\n", -5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7u'\n", -5));
+	printf("%c",'\n');*/
+
+	printf("Conversion x :\n");
+	printf("x est compatible avec les flags '-' | width | '.' |'0' | '#' \n");
+	printf("width 5 minus : -----------------'%-5x'\n", i);
+	printf("width 5 : -----------------------'%5x'\n", i);
+	printf("width 5 zero : --------------'%05x'\n", i);
+	printf("width *3 minus : ----------'%-*x'\n", 3, i);
+	printf("width *3 : --------------------'%*x'\n", 3, i);
+	printf("width 25 minus : ----------------'%-25x'\n", i);
+	printf("width 25 minus : --------------'%-25X'\n", i);
+	printf("width 25 0 : --------------------'%025X'\n", i);
+	printf("width 25 sans minus : -----------'%25X'\n", i);
+	printf("width 25 sans minus : -------'%25X'\n", i);
+	printf("width *30 minus : ---------------'%-*X'\n", 30, i);
+	printf("width *30 sans minus : ----------'%*X'\n", 30, i);
+	printf("precision 3 : -------------------'%.3X'\n", i);
+	printf("precision 33 : --------------'%.33x'\n", i);
+	printf("precision 33 zero : -----------'%0.33x'\n", i);
+	printf("precision 33 minus : ----------'%-.33x'\n", i);
+	printf("precision 33 minus : --------'%-.33X'\n", i);
+	printf("precision 1 width 2 : -----------'%2.1x'\n", i);
+	printf("precision 1 width 4 : -----------'%4.1x'\n", i);
+	printf("precision 5 width 2 zero : ------'%02.5X'\n", i);
+	printf("precision 5 width 20 : ----------'%20.5X'\n", i);
+	printf("precision 5 width 20 zero : -----'%020.5X'\n", i);
+	printf("minus precision 5 width 20 : --'%-20.5x'\n", i);
+	printf("minus precision 3 : -----------'%.3x'\n", 0);
+	printf("zero precision 7 : --------------'%#0.7X'\n", -5);
+	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
 	printf("%c",'\n');
+
+	
 	return 0;
 }
 

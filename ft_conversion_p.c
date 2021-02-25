@@ -6,32 +6,13 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:06:56 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/23 21:03:02 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/24 22:42:15 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-/*
-char	*ft_delete_zero(char *buf)
-{
-	char res[sizeof(buf)];
-	unsigned int i;
-	unsigned int j;
 
-	i = 0;
-	j = 0;
-	while (buf[i] == '0' && i < sizeof(buf))
-		i++;
-	while (i < sizeof(buf))
-	{
-		res[j] = buf[i];
-		i++;
-		j++;
-	}
-	return (res);
-}*/
-
-void	ft_putaddr(unsigned long long int addr, int fd)
+void	ft_putaddr(unsigned long long int addr)
 {
 	int i;
 	const char *base_hex;
@@ -46,8 +27,8 @@ void	ft_putaddr(unsigned long long int addr, int fd)
 		i--;
 	}
 	i = 0;
-	write(fd, "0x", 2);
-	while (buf[i] == '0' && i < sizeof(buf))
+	write(1, "0x", 2);
+	while (buf[i] == '0' && buf[i])
 		i++;
 	while (buf[i])
 		write(1, &buf[i++], 1);
@@ -68,7 +49,7 @@ unsigned long long int	ft_manageptr(unsigned long long int ptr)
 	return (res);
 }*/
 
-int		ft_conversion_p(void *ptr, int fd, t_flags flags)
+int		ft_conversion_p(void *ptr, t_flags flags)
 {
 	unsigned long long int addr;
 	int count;
@@ -78,13 +59,13 @@ int		ft_conversion_p(void *ptr, int fd, t_flags flags)
 	count = 0;
 	len = ft_strlen(ft_llitoa(addr));
 	if (flags.minus)
-		ft_putaddr(addr, 1);
+		ft_putaddr(addr);
 	while (flags.width > 0 && ((count + len) <= flags.width))
 	{
 		write(1, " ", 1);
 		count++;
 	}
 	if (!flags.minus)
-		ft_putaddr(addr, 1);
+		ft_putaddr(addr);
 	return (count + len - 1);
 }
