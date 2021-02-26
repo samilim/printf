@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 03:02:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/26 04:25:06 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ t_flags ft_manage_flags(const char *str, int i, t_flags flags, va_list args)
 			flags.zero = 1;
 		else if (str[i] == '-')
 			flags = ft_manage_minus(flags);
-		else if (str[i] == '+')	//BONUS; imprime systématiquement le signe du nombre
+		else if (str[i] == '+')
 		{
 			flags.sign = 1;
 			flags.space = 0;
 		}
-		else if (str[i] == ' ' && flags.sign == 0)	// si le premier caractère n'est pas un signe, place un espace au début
+		else if (str[i] == ' ' && flags.sign == 0)
 			flags.space = 1;
 		else if (str[i] == '#')	/*spécifie un format de sortie différent : pour o, le premier chiffre sera 0, pour x ou X,  0x ou 0X sera ajouté si le résultat est non nul, pour e,E,f,g,et G, la sortie comportera toujours un point décimal, pour g et G, les 0 de terminaison seront conservés.*/
 			flags.prefix = 1;
@@ -108,7 +108,7 @@ t_flags ft_manage_flags(const char *str, int i, t_flags flags, va_list args)
 				i++;
 		}
 		else if (str[i] == '.')
-		{						//Un point qui sépare la largeur du champ de la précision désirée (pour les flottants)
+		{
 			flags = ft_manage_precision(str, i, flags, args);
 			while (ft_isdigit(str[i + 1]))
 				i++;

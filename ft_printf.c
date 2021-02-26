@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 23:22:32 by user42           ###   ########.fr       */
+/*   Updated: 2021/02/26 04:22:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,11 @@ int             ft_printf(const char *str, ...)
 		va_end(args);
 		return (count);
 }
+
+/*
+check error la str de base
+free et proteger les malloc
+precision 0*/
 
 /*
 DOC
