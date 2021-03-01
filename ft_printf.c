@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/26 04:22:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/01 01:29:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int             ft_printf(const char *str, ...)
 		i = 0;
 		count = 0;
 		va_start(args, str);
+		if (ft_check_error(str))
+			return (0);
 		while (str[i])
 		{
 			if (str[i] == '%')

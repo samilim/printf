@@ -26,8 +26,8 @@ int             ft_conversion_s(const char *s, t_flags flags);
 int             ft_conversion_p(void *ptr, t_flags flags);
 int             ft_conversion_num(int nb, int fd, t_flags flags);
 int             ft_conversion_u(long long int nb, int fd, t_flags flags);
-int             ft_conversion_x(unsigned int nb, t_flags flags);
-int             ft_conversion_X(unsigned int nb, t_flags flags);
+int             ft_conversion_x(long long int nb, t_flags flags);
+int             ft_conversion_X(long long int nb, t_flags flags);
 size_t          ft_strlen(const char *s);
 int				ft_atoi(const char *nb);
 char			*ft_itoa(int n);
@@ -38,5 +38,6 @@ char            *ft_strdup(const char *src);
 char            *ft_substr(char const *str, unsigned int start, size_t len);
 int             ft_putchar_fd(unsigned char c, int fd);
 long long int	ft_manage_nb(long long int nb);
+int	ft_check_error(const char *str);
 
 #endif
