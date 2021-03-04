@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:55:45 by user42            #+#    #+#             */
-/*   Updated: 2021/03/01 02:49:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/04 05:44:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int ft_is_flag(char c)
 {
-    char *char_flags;
+	int i;
+    const char *char_flags;
 
-    char_flags = "-+0 #.";
-    while (*char_flags)
+	i = 0;
+    char_flags = "*-+0 #.";
+    while (char_flags[i])
     {
-        if (*char_flags++ == c)
+        if (char_flags[i] == c)
             return (1);
+		i++;
     }
+	//printf("\nNOT FLAG\n");
     return (0);
 }
 
@@ -32,10 +36,20 @@ int ft_is_double_flag(char c, char *save_flags)
     i = 0;
     while (save_flags[i])
     {
-        if (c == save_flags[i++])
+        if (c != '*' && c == save_flags[i])
+		{
+			//printf("\nDOUBLE FLAG\n");
             return (1);
+		}
+		i++;
     }
     return (0);
+}
+
+void	ft_free_ptr(char* ptr)
+{
+	ptr = NULL;
+	free (ptr);
 }
 
 int	ft_check_error(const char *str)
@@ -45,25 +59,41 @@ int	ft_check_error(const char *str)
 
 	i = 0;
 	save_flags = malloc(sizeof(char) * 10);
+	if (!save_flags)
+		return (1);
 	while (str[i])
 	{
 		if (str[i] == '%')
 		{
 			i++;
 			if (str[i] == '\0')
+			{
+				ft_free_ptr(save_flags);
 				return (1);
+			}
 			while (str[i] && !ft_is_type(str, i))
 			{
-				if (!ft_is_flag(str[i]) || !ft_isdigit(str[i]) || ft_is_double_flag(str[i], save_flags))
-					return (1); //wtf
+				if ((!ft_is_flag(str[i]) && !ft_isdigit(str[i])) || ft_is_double_flag(str[i], save_flags))
+				{
+					ft_free_ptr(save_flags);
+					return (1);
+				}
 				*save_flags++ = str[i];
 				i++;
 			}
             if (!str[i])
+			{
+				ft_free_ptr(save_flags);
                 return (1);
+			}
 		}
 		i++;
 	}
-	//free (save_flags);
+	ft_free_ptr(save_flags);
 	return (0);
 }
+
+//cas trop grande taille de champ
+//cas trop de chiffres
+//cas multi 0
+//cas multi *

@@ -9,22 +9,25 @@ void		ft_putchar_fd(unsigned char c, int fd)
 
 int	main()
 {
+
 	/*TEST P
 	char	*ptr;
 
 	ptr = "56";
 	printf("l'addresse de ptr est : %p ", ptr);*/
 
-	int i = 42;
-	printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj");
+	int i = 42567;
+	int *ptr;
+/*	printf("hello %*.*s", 15, 6, "hello hey hibou coucourehgekj");
 	printf("Conversion c :\n");
 	printf("c est compatible avec les flags - et width\n");
 	printf("width 5 minus : --------------'%-5c'\n", 'X');
 	printf("width 5 sans minus : ---------'%5c'\n", 'X');
 	printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
 	printf("%d",printf("width *3 sans minus : --------'%*c'\n", 3, 'X'));
+	printf("width *neg : -----------------'%*c'\n", -5, 'X');
 	printf("%c",'\n');
-
+*/
 
 	printf("Conversion s :\n");
 	printf("s est compatible avec les flags -, width et .\n");
@@ -41,9 +44,13 @@ int	main()
 	printf("precision 5 width 2 : -----------'%2.5s'\n", "Hello world");
 	printf("precision 5 width 20 : ----------'%20.5s'\n", "Hello world");
 	printf("%d",printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world"));
+	printf("width 12 precision vide : -------'%*.s'\n", 12, "Hello world");
+	printf("width 12 precision 0 : ----------'%*.0s'\n", 12, "Hello world");
+	printf("width 10 precision 3 : ----------'%10.3s'\n", "Hello world");
+	printf("precision 3 : -------------------'%.3s'\n", "Hello world");
 	printf("%c",'\n');
 	
-
+/*
 	printf("Conversion p :\n");
 	printf("p est compatible avec les flags - et width\n");
 	printf("width 5 minus : -----------------'%-5p'\n", "Hello world");
@@ -55,7 +62,7 @@ int	main()
 	printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
 	printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
 	printf("%c",'\n');
-/*
+
 	printf("Conversion i et d :\n");
 	printf("i et d sont compatibles avec les flags -, width et .\n");
 	printf("width 5 minus : -----------------'%-5i'\n", i);
@@ -72,7 +79,7 @@ int	main()
 	printf("precision 5 width 20 : ----------'%20.5d'\n", i);
 	printf("minus precision 5 width 20 : ----'%-20.5d'\n", i);
 	printf("%c",'\n');
-*/
+
 
 
 	printf("Conversion i et d :\n");
@@ -164,8 +171,8 @@ int	main()
 	printf("zero precision 7 : --------------'%#0.7X'\n", -5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
 	printf("%c",'\n');
-
-	
+*/
+	//printf("width %d minus : ----%s------------'%n'\n", 25, "tirets", ptr);
 	return 0;
 }
 

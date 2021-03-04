@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/01 01:29:00 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/04 04:18:40 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ t_flags	ft_init_flags(t_flags flags)
     flags.prefix = 0;
     flags.width = 0;
     flags.precision = -1;
-//BONUS
-    flags.l = 0;
-    flags.h = 0;
 	return (flags);
 }
 
@@ -50,9 +47,7 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 	if (str[i] == 'X')
 		return (ft_conversion_X(va_arg(args, unsigned int), flags));
 	/*if (str[i] == 'n') Ecrit dans l'argument, le nombre de caractères écrits jusque là par printf. Ne convertit pas d'arguments
-		return (ft_conversion_n(va_arg(args, int *), 1));
-	if (str[i] == 'f' || str[i] == 'e' || str[i] == 'g') flag f prend un double, gère les floats.  [-]mmm.ddd, où le nombre de d est donné par la précision (6 par défaut). Si la précision vaut 0, le point décimal est supprimé. flag e same que f mais format [-]mmm.ddde+/-xx. Format %e ou %E si l'exposant est < -4 ou >= la précision, suivant %f sinon. Les 0 ou le point décimal à la fin du nombre ne sont pas imprimés
-		return (ft_conversion_float(va_arg(args, float), 1));*/
+		return (ft_conversion_n(va_arg(args, int *), 1));*/
 	if (str[i] == '%')  //gerer cas dernier caractere
 		return (ft_putchar_fd('%', 1));
 	else
@@ -96,6 +91,7 @@ int             ft_printf(const char *str, ...)
 /*
 check error la str de base
 free et proteger les malloc
+remalloc et free si ptr = autre_ptr ?
 precision 0*/
 
 /*

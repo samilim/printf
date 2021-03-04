@@ -7,16 +7,16 @@ int	main()
 	char	*ptr;
 
 	ptr = "56";
-    int i = 42;
-	ft_printf("Conversion c :\n");
+    int i = 42567;
+/*	ft_printf("Conversion c :\n");
 	ft_printf("c est compatible avec les flags - et width\n");
 	ft_printf("width 5 minus : --------------'%-5c'\n", 'X');
 	ft_printf("width 5 sans minus : ---------'%5c'\n", 'X');
 	ft_printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
 	ft_printf("%d",ft_printf("width *3 sans minus : --------'%*c'\n", 3, 'X'));
-    ft_printf("%c",'X');
+	ft_printf("width *neg : -----------------'%*c'\n", -5, 'X');
 	ft_printf("%c",'\n');
-
+*/
 	ft_printf("Conversion s :\n");
 	ft_printf("s est compatible avec les flags -, width et .\n");
 	ft_printf("width 5 minus : -----------------'%-5s'\n", "Hello world");
@@ -32,10 +32,12 @@ int	main()
 	ft_printf("precision 5 width 2 : -----------'%2.5s'\n", "Hello world");
 	ft_printf("precision 5 width 20 : ----------'%20.5s'\n", "Hello world");
 	ft_printf("%d",ft_printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world"));
+	ft_printf("width 12 precision vide : -------'%*.s'\n", 12, "Hello world");
+	ft_printf("width 12 precision 0 : ----------'%*.0s'\n", 12, "Hello world");
+	ft_printf("width 10 precision 3 : ----------'%*.3s'\n", 10,  "Hello world");
+	ft_printf("precision 3 : -------------------'%.3s'\n", "Hello world");
 	ft_printf("%c",'\n');
-	
-
-
+/*
 	ft_printf("MY ft_printf\n");
 	ft_printf("Conversion p :\n");
 	ft_printf("l'addresse de ptr est : %p\n", ptr);
@@ -50,7 +52,7 @@ int	main()
 	ft_printf("%d\n",ft_printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
 	ft_printf("%c",'\n');
 
-	ft_printf("ft_printf\n");
+	ft_printf("OG printf\n");
 	ft_printf("Conversion p :\n");
 	ft_printf("l'addresse de ptr est : %p\n", ptr);
 	ft_printf("p est compatible avec les flags - et width\n");
@@ -95,7 +97,6 @@ int	main()
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	ft_printf("%c",'\n');
 	
-
 	ft_printf("Conversion u :\n");
 	ft_printf("u est compatibles avec les flags '-' | width | '.' | '0'\n");
 	ft_printf("width 5 minus : -----------------'%-5u'\n", i);
@@ -126,6 +127,7 @@ int	main()
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7u'\n", -5));
 	ft_printf("%c",'\n');
 
+
 	ft_printf("Conversion x :\n");
 	ft_printf("x est compatible avec les flags '-' | width | '.' |'0' | '#' \n");
 	ft_printf("width 5 minus : -----------------'%-5x'\n", i);
@@ -154,8 +156,7 @@ int	main()
 	ft_printf("minus precision 3 : -------------'%.3x'\n", 0);
 	ft_printf("zero precision 7 : --------------'%#0.7X'\n", -5);
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
-	ft_printf("%c",'\n');
-
+	ft_printf("%c",'\n');*/
 	return 0;
 }
 

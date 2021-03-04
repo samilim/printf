@@ -14,8 +14,6 @@ typedef	struct 	s_flags
     int prefix;
     int width;
     int precision;
-    int l; //gere aussi ll 
-    int h; //gere aussi hh
 }		        t_flags;
 
 int				ft_printf(const char *str, ...);
@@ -38,6 +36,6 @@ char            *ft_strdup(const char *src);
 char            *ft_substr(char const *str, unsigned int start, size_t len);
 int             ft_putchar_fd(unsigned char c, int fd);
 long long int	ft_manage_nb(long long int nb);
-int	ft_check_error(const char *str);
+int             ft_check_error(const char *str);
 
 #endif

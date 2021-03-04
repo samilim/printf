@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/02/24 20:29:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/04 04:29:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	else
 		nb_len = ft_div_nb(nb);
 	buf = ft_manage_buffer(nb, nb_pos, nb_len, buf, flags);
-	write (fd, buf, len + 1);
+	write (fd, buf, ft_strlen(buf));
 	free(buf);
 	return (len);
 }
