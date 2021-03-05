@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/04 06:21:28 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/04 09:55:33 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_flags ft_manage_precision(const char* str, int i, t_flags flags, va_list args)
 		flags.precision = 0;
 	if (str[i + 1] == '*')
 		flags.precision = va_arg(args, int);
-	if (str[i + 1] && ft_isdigit(str[i + 1]))
+	if (str[i + 1] && str[i + 1] != '*' && ft_isdigit(str[i + 1]))
 	{
 		i++;
 		while (ft_isdigit(str[i]))
@@ -120,11 +120,11 @@ t_flags ft_manage_flags(const char *str, int i, t_flags flags, va_list args)
 			while (ft_isdigit(str[i + 1]))
 				i++;
 		}
-		else
+		/*else
 		{
 			flags.precision = 0;
 			return (flags);
-		}
+		}*/
 		i++;
 	}
 	return (flags);
