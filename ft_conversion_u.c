@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/04 04:29:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/07 13:46:03 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,13 @@ int		ft_conversion_u(long long nb, int fd, t_flags flags)
 	char *buf;
 	char *nb_pos;
 
+	if (flags.precision == 0 && nb == 0)
+	{
+		len = flags.width;
+		while (flags.width--)
+			write (1, " ", 1);
+		return (len);
+	}
 	nb = ft_manage_nb(nb);
 	if (nb < 0)
 		nb = (4294967295 + nb + 1);

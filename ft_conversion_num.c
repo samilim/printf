@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/05 02:20:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/07 12:00:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	ft_div_nb(int nb)
 	int count;
 
 	count = 0;
+	if (nb == -2147483648)
+		return (10);
 	if (nb < 0)
 	{
 		nb = nb * -1;
@@ -83,6 +85,7 @@ static int		ft_manage_postnb(char *buf, int nb, int i, int nb_len, t_flags flags
 	return (i);
 }
 
+#include <stdio.h>
 static char	*ft_manage_buffer(int nb, char* nb_pos, int nb_len, char *buf, t_flags flags)
 {
 	int i;

@@ -50,7 +50,7 @@ int	main()
 	printf("precision 3 : -------------------'%.3s'\n", "Hello world");
 	printf("width 10 prec vide : ------------'%10.s'\n", "Hello world");
 	printf("%c",'\n');
-	
+	*/
 
 	printf("Conversion p :\n");
 	printf("p est compatible avec les flags - et width\n");
@@ -63,7 +63,7 @@ int	main()
 	printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
 	printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
 	printf("%c",'\n');
-
+/*
 	printf("Conversion i et d :\n");
 	printf("i et d sont compatibles avec les flags -, width et .\n");
 	printf("width 5 minus : -----------------'%-5i'\n", i);
@@ -82,7 +82,7 @@ int	main()
 	printf("%c",'\n');
 
 
-*/
+
 	printf("Conversion i et d :\n");
 	printf("i et d sont compatibles avec les flags '-' | width | '.' | '+' |  ' ' | '0'\n");
 	printf("width 5 minus : -----------------'%-5i'\n", i);
