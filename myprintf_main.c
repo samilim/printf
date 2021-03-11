@@ -41,7 +41,7 @@ int	main()
 	ft_printf(" %10.s %1.s ", "123", "4567");
 	ft_printf("%c",'\n');
 
-/*
+
 	ft_printf("MY ft_printf\n");
 	ft_printf("Conversion p :\n");
 	ft_printf("l'addresse de ptr est : %p\n", ptr);
@@ -67,8 +67,8 @@ int	main()
 	printf("width 25 minus : ----------------'%-25p'\n", "Hello world");
 	printf("width 25 sans minus : -----------'%25p'\n", "Hello world");
 	printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
-	printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
-	printf("%c",'\n');*/
+	//printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
+	printf("%c",'\n');
 
 /*
 	ft_printf("Conversion i et d :\n");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 21:25:57 by user42            #+#    #+#             */
-/*   Updated: 2021/03/11 17:08:57 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/11 20:32:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_atoi(const char *nb)
 	signe = 1;
 	i = 0;
 	nmb = 0;
-	while (nb[i] == ' ' || (nb[i] >= 8 && nb[i] <= 13))
+	while (nb[i] && (nb[i] == ' ' || (nb[i] >= 8 && nb[i] <= 13)))
 		i++;
 	if (nb[i] == '-' || nb[i] == '+')
 	{
@@ -51,8 +51,12 @@ int		ft_atoi(const char *nb)
 			signe *= -1;
 		i++;
 	}
-	while (nb[i] >= '0' && nb[i] <= '9')
-		nmb = nmb * 10 + nb[i++] - '0';
+	//printf("\n adresse de nb : %p\n", &nb);
+	while (nb[i] != '\0' && (nb[i] >= '0' && nb[i] <= '9'))
+	{
+		nmb = nmb * 10 + nb[i] - '0';
+		i++;
+	}
 	return (nmb * signe);
 }
 
