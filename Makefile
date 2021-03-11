@@ -13,8 +13,8 @@ SRCS 		= ft_conversion_c.c \
 			ft_conversion_p.c \
 			ft_conversion_s.c \
 			ft_conversion_u.c \
-			ft_conversion_x.c \
-			ft_conversion_X.c \
+			ft_conversion_xlow.c \
+			ft_conversion_Xup.c \
 			ft_itoa.c\
 			ft_llitoa.c \
 			ft_manage_flags.c \
@@ -27,8 +27,8 @@ SRCS_BONUS	= ft_conversion_c.c \
 			ft_conversion_p.c \
 			ft_conversion_s.c \
 			ft_conversion_u.c \
-			ft_conversion_x.c \
-			ft_conversion_X.c \
+			ft_conversion_xlow.c \
+			ft_conversion_Xup.c \
 			ft_itoa.c\
 			ft_llitoa.c \
 			ft_manage_flags.c \

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/04 04:18:40 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 09:50:23 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,16 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 		return (ft_conversion_x(va_arg(args, unsigned int), flags));
 	if (str[i] == 'X')
 		return (ft_conversion_X(va_arg(args, unsigned int), flags));
-	/*if (str[i] == 'n') Ecrit dans l'argument, le nombre de caractères écrits jusque là par printf. Ne convertit pas d'arguments
-		return (ft_conversion_n(va_arg(args, int *), 1));*/
 	if (str[i] == '%')  //gerer cas dernier caractere
 		return (ft_putchar_fd('%', 1));
 	else
 		return (0);
+}
+
+void	ft_free_ptr(char* ptr)
+{
+	ptr = NULL;
+	free (ptr);
 }
 
 int             ft_printf(const char *str, ...)
@@ -63,9 +67,9 @@ int             ft_printf(const char *str, ...)
 
 		i = 0;
 		count = 0;
-		va_start(args, str);
+		va_start(args, str);/*
 		if (ft_check_error(str))
-			return (0);
+			return (0);*/
 		while (str[i])
 		{
 			if (str[i] == '%')
@@ -89,7 +93,7 @@ int             ft_printf(const char *str, ...)
 }
 
 /*
-check error la str de base
+check error la str de base => NOPE
 free et proteger les malloc
 remalloc et free si ptr = autre_ptr ?
 precision 0*/

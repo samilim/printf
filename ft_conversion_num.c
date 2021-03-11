@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/07 12:00:42 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 09:58:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,15 +124,10 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	//alloc et free nb_pos
 	if (flags.precision == 0 && nb == 0)
 	{
-		/*if (nb == 0)
-			return (0);*/
-		//else
-		//{
-			len = flags.width;
-			while (flags.width--)
-				write (1, " ", 1);
-			return (len);
-		//}
+		len = flags.width;
+		while (flags.width--)
+			write (1, " ", 1);
+		return (len);
 	}
 	nb_pos = ft_itoa_noneg(nb);
 	len = ft_count_byte(nb, flags);

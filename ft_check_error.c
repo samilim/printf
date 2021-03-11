@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:55:45 by user42            #+#    #+#             */
-/*   Updated: 2021/03/04 05:44:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 11:02:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int ft_is_flag(char c)
             return (1);
 		i++;
     }
-	//printf("\nNOT FLAG\n");
     return (0);
 }
 
@@ -37,19 +36,10 @@ int ft_is_double_flag(char c, char *save_flags)
     while (save_flags[i])
     {
         if (c != '*' && c == save_flags[i])
-		{
-			//printf("\nDOUBLE FLAG\n");
             return (1);
-		}
 		i++;
     }
     return (0);
-}
-
-void	ft_free_ptr(char* ptr)
-{
-	ptr = NULL;
-	free (ptr);
 }
 
 int	ft_check_error(const char *str)
@@ -58,8 +48,7 @@ int	ft_check_error(const char *str)
 	char *save_flags;
 
 	i = 0;
-	save_flags = malloc(sizeof(char) * 10);
-	if (!save_flags)
+	if (!(save_flags = malloc(sizeof(char) * 10)))
 		return (1);
 	while (str[i])
 	{

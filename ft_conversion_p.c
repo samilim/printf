@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:06:56 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/07 13:36:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 11:25:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ char*	ft_putaddr(unsigned long long int addr)
 		write(1, &buf[i++], 1);*/
 	address = ft_substr(buf, i, ft_strlen(buf + i));
 	//write(1, (buf + i), ft_strlen(buf + i));
+	//free(buf);
 	return (address/*ft_strlen(buf + i) + 2*/);
 }
 
 void	ft_write_address(/*void *ptr,*/ char* address, int len)
 {
 	write(1, "0x", 2);
-	write (1, address, len);
+	write (1, address, len - 3); //wtf
 }
 
 
@@ -83,8 +84,9 @@ int		ft_conversion_p(void *ptr, t_flags flags)
 	if (!flags.minus && ptr)
 		ft_write_address(/*ptr, */address, len);
 	//count_addr = ft_putaddr(addr);
+	free(address);
 	return (count + len + 2 /*+ len - 1*/);
 }
 
 //CAS NULL
-//print un car en trop dans certains cas
+//print un caractere en trop dans certains cas

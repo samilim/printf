@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/04 09:55:33 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 11:16:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,6 @@ t_flags	ft_manage_width(const char* str, int i, t_flags flags, va_list args)
 	char	*save_digit;
 	int		j;
 
-	save_digit = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!save_digit)
-	{
-		flags.precision = 0;
-		return (flags);
-	}
-	j = 0;
 	if (str[i] == '*')
 	{
 		flags.width = va_arg(args, int);
@@ -57,6 +50,16 @@ t_flags	ft_manage_width(const char* str, int i, t_flags flags, va_list args)
 		}
 		return (flags);
 	}
+	j = i;//
+	while (ft_isdigit(str[j]))
+		j++;
+	j = (j - i) + 1;
+	if (!(save_digit = malloc(sizeof(char) * (j + 1))))//(ft_strlen(str) + 1));
+	{
+		flags.precision = 0;
+		return (flags);
+	}
+	j = 0;//
 	while (ft_isdigit(str[i]))
 		save_digit[j++] = str[i++];
 	flags.width = ft_atoi(save_digit);
@@ -120,11 +123,6 @@ t_flags ft_manage_flags(const char *str, int i, t_flags flags, va_list args)
 			while (ft_isdigit(str[i + 1]))
 				i++;
 		}
-		/*else
-		{
-			flags.precision = 0;
-			return (flags);
-		}*/
 		i++;
 	}
 	return (flags);
