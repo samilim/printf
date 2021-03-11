@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_u.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/07 13:46:03 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 15:21:37 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ long long int	ft_manage_nb(long long int nb)
 	char *buf_without_zero;
 	int 	i;
 
+	i = 0;
 	buf = ft_llitoa(nb);
 	while(buf[i] == '0')
 		i++;

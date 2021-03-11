@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_manage_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/11 11:16:12 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 17:12:12 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,26 @@ t_flags	ft_manage_width(const char* str, int i, t_flags flags, va_list args)
 		}
 		return (flags);
 	}
-	j = i;//
+	j = i;
 	while (ft_isdigit(str[j]))
 		j++;
-	j = (j - i) + 1;
-	if (!(save_digit = malloc(sizeof(char) * (j + 1))))//(ft_strlen(str) + 1));
+	//printf("\nj = %d, i = %d\n", j, i);
+	j = (j - i);
+	//printf("\nj = %d\n", j);
+	if (!(save_digit = malloc(sizeof(char) * (j))))
 	{
 		flags.precision = 0;
 		return (flags);
 	}
-	j = 0;//
+	j = 0;
 	while (ft_isdigit(str[i]))
+	{
+		//printf("\n stri = %c\n", str[i]);
 		save_digit[j++] = str[i++];
+	}
+	//printf("\natoi : %d\n",ft_atoi(save_digit));
 	flags.width = ft_atoi(save_digit);
+	//printf("\n%d\n", flags.width);
 	free(save_digit);
 	return (flags);
 }

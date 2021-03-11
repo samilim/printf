@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_s.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:04:34 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/04 08:28:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/11 15:46:33 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int		ft_conversion_s(const char *s, t_flags flags)
 	}
 	if (!flags.minus)
 		count = ft_putstr(s, flags, count);
+	//printf("\n%d\n", flags.precision);
 	return (count);
 }
