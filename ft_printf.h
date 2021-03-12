@@ -20,7 +20,7 @@ int				ft_printf(const char *str, ...);
 char            ft_is_type(const char *str, int i);
 t_flags         ft_manage_flags(const char *str, int i, t_flags flags, va_list args);
 int				ft_conversion_c(unsigned char c, int fd, t_flags flags);
-int             ft_conversion_s(const char *s, t_flags flags);
+int             ft_conversion_s(t_flags flags, va_list args);
 int             ft_conversion_p(void *ptr, t_flags flags);
 int             ft_conversion_num(int nb, int fd, t_flags flags);
 int             ft_conversion_u(long long int nb, int fd, t_flags flags);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:06:56 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/11 21:09:08 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/12 16:24:02 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_addr_len(unsigned long long int addr)
 		addr = addr / 16;
 		i++;
 	}
+	//i++;
 	return (i);
 }
 
@@ -32,12 +33,12 @@ char*	ft_putaddr(unsigned long long int addr)
     //char buf[50/*ft_strlen(ft_llitoa(addr)) * 2*/];
 	//char *buf;
 	char *address;
-
-
+	
 	//i = sizeof(buf);
 	i = ft_addr_len(addr);
-	address = malloc(sizeof(char) * (i + 1));
+	address = malloc(sizeof(char) * (i + 2));
 	base_hex = "0123456789abcdef";
+	address[i + 1] = '\0';
 	while (i >= 0)
 	{
 		address[i] = base_hex[(addr % 16)];
@@ -101,7 +102,10 @@ int		ft_conversion_p(void *ptr, t_flags flags)
 		write(1, " ", 1);
 		count++;
 	}
-	if (!flags.minus && ptr)
+	//printf("\nwidth = %d\n", flags.width);
+	//printf("\ncount = %d\n", count);
+	//printf("\nlen = %d\n", len);
+	if (!flags.minus)
 		ft_write_address(address, len);
 	//count_addr = ft_putaddr(addr);
 	free(address);
