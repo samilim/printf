@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 21:25:57 by user42            #+#    #+#             */
-/*   Updated: 2021/03/12 14:48:55 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/13 22:35:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ char	*ft_strdup(const char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+int	ft_div_nb(long long int nb)
+{
+	int count;
+
+	count = 0;
+	/*if (nb == -2147483648)
+		return (10);*/
+	if (nb < 0)
+	{
+		nb = nb * -1;
+	}
+	while (nb >= 10)
+	{
+		nb = nb / 10;
+		count++;
+	}
+	count++;
+	return (count);
 }
 
 int		ft_atoi(const char *nb)

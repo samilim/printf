@@ -175,13 +175,12 @@ int	main()
 	ft_printf("%c",'\n');
 
 	/*while (1)
-	{};
-	return 0;*/
+	{};*/
+	return 0;
 }
 
 //gcc ft_conversion_c.c ft_manage_flags.c ft_printf.c ft_printf_utils.c ft_printf.h myprintf_main.c ft_conversion_s.c ft_itoa.c ft_conversion_p.c ft_conversion_num.c ft_conversion_u.c ft_llitoa.c ft_conversion_xlow.c ft_conversion_Xup.c ft_check_error.c && ./a.out
 //gcc -fsanitize=address -g3 ft_conversion_c.c ft_manage_flags.c ft_printf.c ft_printf_utils.c ft_printf.h myprintf_main.c ft_conversion_s.c ft_itoa.c ft_conversion_p.c ft_conversion_num.c ft_conversion_u.c ft_llitoa.c ft_conversion_xlow.c ft_conversion_Xup.c ft_check_error.c && ./a.out
-
 
 /*testeurs :
 https://github.com/cacharle/ft_printf_test*/
