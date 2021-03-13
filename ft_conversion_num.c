@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/12 17:14:45 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/12 22:02:19 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,6 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	buf = ft_manage_buffer(nb, nb_pos, nb_len, buf, flags);
 	write (fd, buf, len/*ft_strlen(buf) + 1*/);
 	free(buf);
+	free(nb_pos);
 	return (ft_strlen(buf));
 }

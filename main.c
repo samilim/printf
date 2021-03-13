@@ -111,13 +111,14 @@ int	main()
 	printf("minus precision 5 width 20 + : --'%-+20.5d'\n", i);
 	printf("minus precision 3 + : -----------'%+.3d'\n", 0);
 	printf("zero precision 7 : --------------'%0.7d'\n", -5);
-	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
+	//printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	printf("minus w 4 prec 5 : --------------'%-*.*d'\n", 4, 5, 10);
 	printf("w 10 prec 21 : ------------------'%*.*d'\n", 10, 21, -10);
-	printf("width 21 zero : ------'%0*d'\n", 21, -1011);
-	printf("zero w -2 prec 0 : ---'%0*.0d'\n", -2);
+	printf("width 21 zero : -----------------'%0*d'\n", 21, -1011);
+	printf("width 21 : ----------------------'%*d'\n", 21, -1011);
+	printf("zero w -2 prec 0 : --------------'%0*.0d'\n", -2, 98);
 	printf("%c",'\n');
-/*
+
 	printf("Conversion u :\n");
 	printf("u est compatibles avec les flags '-' | width | '.' | '0'\n");
 	printf("width 5 minus : -----------------'%-5u'\n", i);
@@ -147,7 +148,7 @@ int	main()
 	printf("zero precision 7 : --------------'%0.7u'\n", -5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7u'\n", -5));
 	printf("%c",'\n');
-
+/*
 	printf("Conversion x :\n");
 	printf("x est compatible avec les flags '-' | width | '.' |'0' | '#' \n");
 	printf("width 5 minus : -----------------'%-5x'\n", i);

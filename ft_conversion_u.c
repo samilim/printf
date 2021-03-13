@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_u.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/11 15:21:37 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/12 22:11:20 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ long long int	ft_manage_nb(long long int nb)
 	while(buf[i] == '0')
 		i++;
 	buf_without_zero = ft_substr(buf, i, ft_strlen(buf));
+	free (buf);
 	res = ft_atoi(buf_without_zero);
+	free(buf_without_zero);
 	return (res);
 }
 
@@ -110,7 +112,7 @@ int		ft_conversion_u(long long nb, int fd, t_flags flags)
 	nb = ft_manage_nb(nb);
 	if (nb < 0)
 		nb = (4294967295 + nb + 1);
-	nb_pos = malloc(sizeof(ft_div_nb(nb)) + 1);
+	//nb_pos = malloc(sizeof(ft_div_nb(nb)) + 1);
 	nb_pos = ft_llitoa(nb);
 	len = ft_count_byte(nb, flags);
 	buf = malloc(sizeof(char) * (len + 1));
