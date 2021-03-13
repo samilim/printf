@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/12 22:02:19 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/13 15:39:43 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ static int		ft_manage_postnb(char *buf, int nb, int i, int nb_len, t_flags flags
 		flags.space = 0;
 	if (nb < 0)
 		flags.sign = 1;
-	/*if (nb < 0)
-		buf[i++] = '-';*/
 	if (!flags.minus)
 	{
 		while (((flags.width - (nb_len + flags.sign)) > 0) && i < (flags.width - (nb_len + flags.sign)))//((i + 1) < (len - (nb_len + flags.space + flags.sign)))
@@ -122,7 +120,6 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	char *buf;
 	char *nb_pos;
 
-	//alloc et free nb_pos
 	if (flags.precision == 0 && nb == 0)
 	{
 		len = flags.width;
@@ -135,7 +132,7 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	//printf("\ncount byte = %d\n",len);
 	if (!(buf = malloc(sizeof(char) * (len + 1))))
 		return (0);
-	buf[len + 1] = '\0';
+	buf[len] = '\0';
 	if (flags.precision > ft_div_nb(nb))
 		nb_len = flags.precision;
 	else
@@ -144,5 +141,5 @@ int		ft_conversion_num(int nb, int fd, t_flags flags)
 	write (fd, buf, len/*ft_strlen(buf) + 1*/);
 	free(buf);
 	free(nb_pos);
-	return (ft_strlen(buf));
+	return (len/*ft_strlen(buf)*/);
 }

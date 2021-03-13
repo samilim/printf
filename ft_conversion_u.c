@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_u.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/12 22:11:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/13 14:21:06 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static int	ft_count_byte(long long int nb, t_flags flags)
 	int count;
 
 	count = ft_div_nb(nb);
-	if (flags.width > 0 && (flags.width >= flags.precision))
+	if (flags.width > 0 && (flags.width >= flags.precision) && (flags.width > count))
 		return (flags.width);
-	if (flags.precision > flags.width)
+	if (flags.precision > flags.width && flags.precision > count)
 		return (flags.precision);
 	return (count);
 }
@@ -112,11 +112,9 @@ int		ft_conversion_u(long long nb, int fd, t_flags flags)
 	nb = ft_manage_nb(nb);
 	if (nb < 0)
 		nb = (4294967295 + nb + 1);
-	//nb_pos = malloc(sizeof(ft_div_nb(nb)) + 1);
 	nb_pos = ft_llitoa(nb);
 	len = ft_count_byte(nb, flags);
-	buf = malloc(sizeof(char) * (len + 1));
-	if (!buf)
+	if (!(buf = malloc(sizeof(char) * (len + 1))))
 		return (0);
 	if (flags.precision > ft_div_nb(nb))
 		nb_len = flags.precision;

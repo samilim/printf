@@ -24,7 +24,7 @@ int	main()
 	printf("width 5 minus : --------------'%-5c'\n", 'X');
 	printf("width 5 sans minus : ---------'%5c'\n", 'X');
 	printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
-	//printf("%d",printf("width *3 sans minus : --------'%*c'\n", 3, 'X'));
+	printf("%d\n",printf("width *3 sans minus : --------'%*c'\n", 3, 'X'));
 	printf("width *neg : -----------------'%*c'\n", -5, 'X');
 	printf("%c",'\n');
 
@@ -43,13 +43,13 @@ int	main()
 	printf("precision 33 : ------------------'%.33s'\n", "Hello world");
 	printf("precision 5 width 2 : -----------'%2.5s'\n", "Hello world");
 	printf("precision 5 width 20 : ----------'%20.5s'\n", "Hello world");
-	//printf("%d",printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world"));
+	printf("%d\n",printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world"));
 	printf("width 12 precision vide : -------'%*.s'\n", 12, "Hello world");
 	printf("width 12 precision 0 : ----------'%*.0s'\n", 12, "Hello world");
 	printf("width 10 precision 3 : ----------'%10.3s'\n", "Hello world");
 	printf("precision 3 : -------------------'%.3s'\n", "Hello world");
 	printf("width 10 prec vide : ------------'%10.s'\n", "Hello world");
-	printf(" %10.s %1.s ", "123", "4567");
+	printf(" %10.s %1.s \n", "123", "4567");
 	printf("%c",'\n');
 	
 
@@ -111,12 +111,14 @@ int	main()
 	printf("minus precision 5 width 20 + : --'%-+20.5d'\n", i);
 	printf("minus precision 3 + : -----------'%+.3d'\n", 0);
 	printf("zero precision 7 : --------------'%0.7d'\n", -5);
-	//printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
+	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	printf("minus w 4 prec 5 : --------------'%-*.*d'\n", 4, 5, 10);
 	printf("w 10 prec 21 : ------------------'%*.*d'\n", 10, 21, -10);
 	printf("width 21 zero : -----------------'%0*d'\n", 21, -1011);
 	printf("width 21 : ----------------------'%*d'\n", 21, -1011);
 	printf("zero w -2 prec 0 : --------------'%0*.0d'\n", -2, 98);
+	printf("int max %d\n", 2147483648);
+	printf("uint max %i\n", 4294967295);
 	printf("%c",'\n');
 
 	printf("Conversion u :\n");
@@ -147,8 +149,9 @@ int	main()
 	printf("minus precision 3 : -------------'%.3u'\n", 0);
 	printf("zero precision 7 : --------------'%0.7u'\n", -5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7u'\n", -5));
+	printf("uint max %u\n", 4294967295);
 	printf("%c",'\n');
-/*
+
 	printf("Conversion x :\n");
 	printf("x est compatible avec les flags '-' | width | '.' |'0' | '#' \n");
 	printf("width 5 minus : -----------------'%-5x'\n", i);
@@ -178,7 +181,6 @@ int	main()
 	printf("zero precision 7 : --------------'%#0.7X'\n", -5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
 	printf("%c",'\n');
-*/
 	//printf("width %d minus : ----%s------------'%n'\n", 25, "tirets", ptr);
 	return 0;
 }

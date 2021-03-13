@@ -8,12 +8,12 @@ int	main()
 
 	ptr = "56";
     int i = 42567;
-/*	ft_printf("Conversion c :\n");
+	ft_printf("Conversion c :\n");
 	ft_printf("c est compatible avec les flags - et width\n");
 	ft_printf("width 5 minus : --------------'%-5c'\n", 'X');
 	ft_printf("width 5 sans minus : ---------'%5c'\n", 'X');
 	ft_printf("width *3 minus : -------------'%-*c'\n", 3, 'X');
-	//ft_printf("%d",ft_printf("width *3 sans minus : --------'%*c'\n", 3, 'X'));
+	ft_printf("%d\n",ft_printf("width *3 sans minus : --------'%*c'\n", 3, 'X'));
 	ft_printf("width *neg : -----------------'%*c'\n", -5, 'X');
 	ft_printf("%c",'\n');
 
@@ -32,7 +32,7 @@ int	main()
 	ft_printf("precision 33 : ------------------'%.33s'\n", "Hello world");
 	ft_printf("precision 5 width 2 : -----------'%2.5s'\n", "Hello world");
 	ft_printf("precision 5 width 20 : ----------'%20.5s'\n", "Hello world");
-	//ft_printf("%d",ft_printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world"));
+	ft_printf("%d\n",ft_printf("minus precision 5 width 20 : ----'%-20.5s'\n", "Hello world"));
 	ft_printf("width 12 precision vide : -------'%*.s'\n", 12, "Hello world");
 	ft_printf("width 12 precision 0 : ----------'%*.0s'\n", 12, "Hello world");
 	ft_printf("width 10 precision 3 : ----------'%*.3s'\n", 10,  "Hello world");
@@ -54,8 +54,8 @@ int	main()
 	ft_printf("width 25 minus : ----------------'%-25p'\n", "Hello world");
 	ft_printf("width 25 sans minus : -----------'%25p'\n", "Hello world");
 	ft_printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
-	//ft_printf("%d\n",ft_printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
-	ft_printf("'%10p %-10p '", 0, 0);
+	ft_printf("%d\n",ft_printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
+	ft_printf("'%10p %-10p '\n", 0, 0);
 	ft_printf("%c",'\n');
 
 	printf("OG printf\n");
@@ -69,10 +69,10 @@ int	main()
 	printf("width 25 minus : ----------------'%-25p'\n", "Hello world");
 	printf("width 25 sans minus : -----------'%25p'\n", "Hello world");
 	printf("width *30 minus : ---------------'%-*p'\n", 30, &i);
-	//printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
-	printf("'%10p %-10p '", 0, 0);
+	printf("%d\n", printf("width *30 sans minus : ----------'%*p'\n", 30, "Hello world"));
+	printf("'%10p %-10p '\n", 0, 0);
 	printf("%c",'\n');
-*/
+
 
 	ft_printf("Conversion i et d :\n");
 	ft_printf("i et d sont compatibles avec les flags '-' | width | '.' | '+' |  ' ' | '0'\n");
@@ -101,12 +101,14 @@ int	main()
 	ft_printf("minus precision 5 width 20 + : --'%-+20.5d'\n", i);
 	ft_printf("minus precision 3 + : -----------'%+.3d'\n", 0);
 	ft_printf("zero precision 7 : --------------'%0.7d'\n", -5);
-	//ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
+	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	ft_printf("minus w 4 prec 5 : --------------'%-*.*d'\n", 4, 5, 10);
 	ft_printf("w 10 prec 21 : ------------------'%*.*d'\n", 10, 21, -10);
 	ft_printf("width 21 zero : -----------------'%0*d'\n", 21, -1011);
 	ft_printf("width 21 : ----------------------'%*d'\n", 21, -1011);
 	ft_printf("zero w -2 prec 0 : --------------'%0*.0d'\n", -2, 98);
+	ft_printf("int max %d\n", 2147483648);
+	ft_printf("uint max %i\n", 4294967295);
 	ft_printf("%c",'\n');
 
 
@@ -138,9 +140,10 @@ int	main()
 	ft_printf("minus precision 3 : -------------'%.3u'\n", 0);
 	ft_printf("zero precision 7 : --------------'%0.7u'\n", -5);
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7u'\n", -5));
+	ft_printf("uint max %u\n", 4294967295);
 	ft_printf("%c",'\n');
 
-/*
+
 	ft_printf("Conversion x :\n");
 	ft_printf("x est compatible avec les flags '-' | width | '.' |'0' | '#' \n");
 	ft_printf("width 5 minus : -----------------'%-5x'\n", i);
@@ -169,7 +172,10 @@ int	main()
 	ft_printf("minus precision 3 : -------------'%.3x'\n", 0);
 	ft_printf("zero precision 7 : --------------'%#0.7X'\n", -5);
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
-	ft_printf("%c",'\n');*/
+	ft_printf("%c",'\n');
+
+	while (1)
+	{};
 	return 0;
 }
 

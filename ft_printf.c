@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/12 15:30:16 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/13 15:30:00 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,11 @@ int             ft_printf(const char *str, ...)
 
 /*
 check error la str de base => NOPE
-free et proteger les malloc
 remalloc et free si ptr = autre_ptr ?
-precision 0*/
+precision 0
+gerer uint max pour d et i?
+leaks
+*/
 
 /*
 DOC
