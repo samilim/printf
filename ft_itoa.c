@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 19:22:50 by user42            #+#    #+#             */
-/*   Updated: 2021/03/12 19:54:06 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/13 17:13:03 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,13 @@ char			*ft_itoa_noneg(int n)
 	count = ft_count(n);
 	if (!(nb = (char *)malloc(sizeof(char) * (count + 1))))
 		return (NULL);
-	nb[count] = '\0';
+	//nb /0
 	i = 0;
 	if (n < 0)
 	{
 		n = n * -1;
 		count--;
 	}
+	nb[count] = '\0';
 	return (ft_create_nb(nb, n, i, count));
 }
