@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 21:25:57 by user42            #+#    #+#             */
-/*   Updated: 2021/03/13 22:35:26 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/14 14:35:06 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,16 @@ int	ft_div_nb(long long int nb)
 	return (count);
 }
 
-int		ft_atoi(const char *nb)
+long long int		ft_atoi(const char *nb)
 {
 	unsigned int	i;
 	int				signe;
-	int				nmb;
+	long long int				nmb;
 
 	signe = 1;
 	i = 0;
 	nmb = 0;
-	while (/*nb[i] &&*/ nb[i] == ' ' || (nb[i] >= 8 && nb[i] <= 13))
+	while (nb[i] == ' ' || (nb[i] >= 8 && nb[i] <= 13))
 		i++;
 	if (nb[i] == '-' || nb[i] == '+')
 	{
@@ -71,7 +71,6 @@ int		ft_atoi(const char *nb)
 			signe *= -1;
 		i++;
 	}
-	//printf("\n adresse de nb : %p\n", &nb);
 	while (nb[i] != '\0' && (nb[i] >= '0' && nb[i] <= '9'))
 	{
 		nmb = nmb * 10 + nb[i] - '0';

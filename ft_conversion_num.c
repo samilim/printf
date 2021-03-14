@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/13 22:42:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/14 14:12:14 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_count_byte(int nb, t_flags flags)
 	f = 0;
 	if (nb < 0)
 		flags.sign = 1;
-	if ((nb < 0 || (nb >= 0 && (flags.sign || flags.space))))
+	if (nb < 0 || (nb >= 0 && (flags.sign || flags.space)))
 		f++;
 	count = ft_div_nb(nb);
 	if (flags.width > 0 && (flags.width > count) &&

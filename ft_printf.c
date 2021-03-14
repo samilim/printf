@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/13 15:30:00 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/14 16:00:48 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 	if (str[i] == 'd' || str[i] == 'i')
 		return (ft_conversion_num(va_arg(args, int), 1, flags));
 	if (str[i] == 'u')
-		return (ft_conversion_u(va_arg(args, long long int), 1, flags));
+		return (ft_conversion_u((long long int)va_arg(args, unsigned int), 1, flags));
 	if (str[i] == 'x')
 		return (ft_conversion_x(va_arg(args, unsigned int), flags));
 	if (str[i] == 'X')
