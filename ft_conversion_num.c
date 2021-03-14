@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/14 14:12:14 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/14 22:52:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_count_byte(int nb, t_flags flags)
 		f++;
 	count = ft_div_nb(nb);
 	if (flags.width > 0 && (flags.width > count) &&
-	(flags.width >= flags.precision))
+	(flags.width > flags.precision))
 		return (flags.width);
-	if (flags.precision > flags.width && flags.precision > count)
+	if (flags.precision >= flags.width && flags.precision > count)
 		return (f + flags.precision);
 	return (count + f);
 }
@@ -42,7 +42,9 @@ int nb_len, t_flags flags)
 		while (((flags.width - (nb_len + flags.sign)) > 0) &&
 		i < (flags.width - (nb_len + flags.sign)))
 		{
-			if (flags.zero && flags.precision == -1)
+			/*if (!flags.zero || (i < (flags.width + flags.precision)))
+				buf[i++] = ' ';*/
+			if (flags.zero /*&& (i >= (flags.width - flags.precision)*/) /*&& flags.precision == -1)*/
 			{
 				if (flags.sign && nb < 0)
 				{
@@ -71,7 +73,7 @@ char *buf, t_flags flags)
 	int div_nb;
 
 	i = 0;
-	div_nb = ft_div_nb(nb);
+	div_nb = ft_div_nb(nb)/*+ flags.sign */;
 	len = ft_count_byte(nb, flags);
 	prec_i = 0;
 	if (flags.space && (nb >= 0))
@@ -111,10 +113,10 @@ int			ft_conversion_num(int nb, int fd, t_flags flags)
 	if (!(buf = malloc(sizeof(char) * (len + 1))))
 		return (0);
 	buf[len] = '\0';
-	if (flags.precision > ft_div_nb(nb))
+	if (flags.precision > (ft_div_nb(nb) + flags.sign))
 		nb_len = flags.precision;
 	else
-		nb_len = ft_div_nb(nb);
+		nb_len = (ft_div_nb(nb) + flags.sign);
 	buf = ft_manage_buffer(nb, nb_pos, nb_len, buf, flags);
 	write(fd, buf, len);
 	free(buf);
