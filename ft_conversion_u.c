@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/14 16:02:52 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/15 14:32:20 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ static long long int	ft_manage_nb(long long int nb)
 	buf = ft_llitoa(nb);
 	while (buf[i] == '0')
 		i++;
-	buf_without_zero = ft_substr(buf, i, ft_strlen(buf));
-	//printf("\n nb wthout 0 = %s\n", buf_without_zero);
+	buf_without_zero = ft_substr(buf, i, ft_strlen(buf));\
 	free(buf);
 	res = ft_atoi(buf_without_zero);
-	//printf("\n atoi = %lld\n", res);
 	free(buf_without_zero);
 	return (res);
 }

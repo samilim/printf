@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/14 22:52:04 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/15 15:00:03 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ int nb_len, t_flags flags)
 		flags.sign = 1;
 	if (!flags.minus)
 	{
-		while (((flags.width - (nb_len + flags.sign)) > 0) &&
-		i < (flags.width - (nb_len + flags.sign)))
+		/*while (i < flags.width - (nb_len + flags.sign))
+			buf[i++] = ' ';*/
+		while ((i < (flags.width - (nb_len + flags.sign))))
 		{
 			/*if (!flags.zero || (i < (flags.width + flags.precision)))
 				buf[i++] = ' ';*/
-			if (flags.zero /*&& (i >= (flags.width - flags.precision)*/) /*&& flags.precision == -1)*/
+			if (flags.zero && (i >= (flags.width - nb_len)))
 			{
 				if (flags.sign && nb < 0)
 				{
@@ -81,7 +82,7 @@ char *buf, t_flags flags)
 	if (flags.space && nb < 0)
 		flags.space = 0;
 	i = ft_manage_postnb(buf, nb, i, nb_len, flags);
-	while ((div_nb + prec_i) < flags.precision)
+	while (((div_nb + prec_i) < flags.precision))
 	{
 		buf[i++] = '0';
 		prec_i++;

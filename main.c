@@ -119,6 +119,7 @@ int	main()
 	printf("zero w -2 prec 0 : --------------'%0*.0d'\n", -2, 98);
 	printf("int max %d\n", 2147483648);
 	printf("uint max %i\n", 4294967295);
+	printf("w 4 p 2'%0*.*i'\n", 4, 2, 8);
 	printf("%c",'\n');
 
 	printf("Conversion u :\n");
