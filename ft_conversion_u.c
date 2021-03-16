@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/15 14:32:20 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/16 15:47:38 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ int				ft_conversion_u(long long int nb, int fd, t_flags flags)
 			write(1, " ", 1);
 		return (len);
 	}
-	
+	if (flags.precision != (-1))
+		flags = ft_cancel_zero(flags);
 	//nb = ft_manage_nb(nb);
 	if (nb < 0)
 		nb = (4294967295 + nb + 1); //apres manage nb

@@ -19,6 +19,7 @@ int	main()
 
 
 	ft_printf("Conversion s :\n");
+	ft_printf("%10.3s", "coucou");
 	ft_printf("s est compatible avec les flags -, width et .\n");
 	ft_printf("width 5 minus : -----------------'%-5s'\n", "Hello world");
 	ft_printf("width 5 sans minus : ------------'%5s'\n", "Hello world");

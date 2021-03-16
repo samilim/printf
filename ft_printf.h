@@ -35,6 +35,7 @@ int				ft_isdigit(int c);
 char            *ft_strdup(const char *src);
 char            *ft_substr(char const *str, unsigned int start, size_t len);
 int             ft_putchar_fd(unsigned char c, int fd);
+t_flags	ft_cancel_zero(t_flags flags);
 //long long int	ft_manage_nb(long long int nb);
 void            ft_free_ptr(char* ptr);
 int             ft_div_nb(long long int nb);

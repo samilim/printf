@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 21:25:57 by user42            #+#    #+#             */
-/*   Updated: 2021/03/14 14:35:06 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/16 16:01:14 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,6 @@ char	*ft_strdup(const char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
-}
-
-int	ft_div_nb(long long int nb)
-{
-	int count;
-
-	count = 0;
-	/*if (nb == -2147483648)
-		return (10);*/
-	if (nb < 0)
-	{
-		nb = nb * -1;
-	}
-	while (nb >= 10)
-	{
-		nb = nb / 10;
-		count++;
-	}
-	count++;
-	return (count);
 }
 
 long long int		ft_atoi(const char *nb)

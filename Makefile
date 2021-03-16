@@ -19,6 +19,7 @@ SRCS 		= ft_conversion_c.c \
 			ft_llitoa.c \
 			ft_manage_flags.c \
 			ft_printf_utils.c \
+			ft_printf_utils2.c \
 			ft_printf.c \
 
 SRCS_BONUS	= ft_conversion_c.c \
@@ -32,6 +33,7 @@ SRCS_BONUS	= ft_conversion_c.c \
 			ft_llitoa.c \
 			ft_manage_flags.c \
 			ft_printf_utils.c \
+			ft_printf_utils2.c \
 			ft_printf.c \
 
 SRCS_PATH	= srcs/
