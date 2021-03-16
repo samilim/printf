@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_s.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:04:34 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/13 22:06:37 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/16 13:57:23 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_putstr(const char *s, t_flags flags, int count)
 
 	i = 0;
 	if (flags.precision > 0)
-		while (s[i] && i < flags.precision)
+		while (s[i] && (i < flags.precision))
 		{
 			ft_putchar_fd(s[i++], 1);
 			count++;
@@ -49,7 +49,7 @@ int		ft_conversion_s(t_flags flags, va_list args)
 	if (!s)
 		s = "(null)";
 	count = 0;
-	if (flags.precision > 0 && ((unsigned int)flags.precision < ft_strlen(s)))
+	if (flags.precision > 0 && (flags.precision < (int)ft_strlen(s)))
 		len = flags.precision;
 	else
 		len = ft_strlen(s);

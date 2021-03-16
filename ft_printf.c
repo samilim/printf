@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/14 16:00:48 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/16 15:41:12 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 	if (str[i] == 'c')
 		return (ft_conversion_c(va_arg(args, int), 1, flags));
 	if (str[i] == 's')
-		return (ft_conversion_s(/*va_arg(args, const char *), */flags, args));
+		return (ft_conversion_s(flags, args));
 	if (str[i] == 'p')
 		return (ft_conversion_p(va_arg(args, void *), flags));
 	if (str[i] == 'd' || str[i] == 'i')
@@ -46,7 +46,7 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 		return (ft_conversion_x(va_arg(args, unsigned int), flags));
 	if (str[i] == 'X')
 		return (ft_conversion_X(va_arg(args, unsigned int), flags));
-	if (str[i] == '%')  //gerer cas dernier caractere
+	if (str[i] == '%')
 		return (ft_putchar_fd('%', 1));
 	else
 		return (0);
@@ -67,9 +67,7 @@ int             ft_printf(const char *str, ...)
 
 		i = 0;
 		count = 0;
-		va_start(args, str);/*
-		if (ft_check_error(str))
-			return (0);*/
+		va_start(args, str);
 		while (str[i])
 		{
 			if (str[i] == '%')
@@ -91,38 +89,3 @@ int             ft_printf(const char *str, ...)
 		va_end(args);
 		return (count);
 }
-
-/*
-check error la str de base => NOPE
-remalloc et free si ptr = autre_ptr ?
-precision 0
-gerer uint max pour d et i?
-leaks
-*/
-
-/*
-DOC
-//voir https://perso.liris.cnrs.fr/raphaelle.chaine/COURS/LIFAP6/printf_form.html
-man 3 printf : https://docs.microsoft.com/fr-fr/cpp/c-runtime-library/format-specification-syntax-printf-and-wprintf-functions?view=msvc-160
-man 3 stdarg : https://koor.fr/C/cstdarg/cstdarg.w
-kwargs: 
-va_start
-va_arg
-va_copy
-va_end
-taille de champ
-
-INDICATIONS
-Fonctions externes autorisées;  malloc, free, write, va_start, va_arg, va_copy, va_end
-
-Vous ne devez pas gérer de buffer, contrairement au vrai printf
-Vous devez gérer les conversions suivantes : cspdiuxX%
-Vous devez gérer n’importe quelle combinaison de flags ’-0.*’ et la taille de champ
-minimale avec toutes les conversions
-Votre rendu sera comparé au vrai printf
-
-BONUS
-Gérez une ou plusieurs des conversions suivantes : nfge
-• Gérez un ou plusieurs des flags suivants : l ll h hh
-• Gérez tous les flags suivants : ’# +’ (oui espace est un flag valide)
-*/

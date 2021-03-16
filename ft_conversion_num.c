@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/15 15:00:03 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/16 14:09:37 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int nb_len, t_flags flags)
 		{
 			/*if (!flags.zero || (i < (flags.width + flags.precision)))
 				buf[i++] = ' ';*/
-			if (flags.zero && (i >= (flags.width - nb_len)))
+			if (flags.zero /*&& (i >= (flags.width - nb_len))*/)
 			{
 				if (flags.sign && nb < 0)
 				{
@@ -95,6 +95,12 @@ char *buf, t_flags flags)
 	return (buf);
 }
 
+t_flags	ft_cancel_zero(t_flags flags)
+{
+	flags.zero = 0;
+	return (flags);
+}
+
 int			ft_conversion_num(int nb, int fd, t_flags flags)
 {
 	int		len;
@@ -109,6 +115,8 @@ int			ft_conversion_num(int nb, int fd, t_flags flags)
 			write(1, " ", 1);
 		return (len);
 	}
+	if (flags.precision != (-1))
+		flags = ft_cancel_zero(flags);
 	nb_pos = ft_itoa_noneg(nb);
 	len = ft_count_byte(nb, flags);
 	if (!(buf = malloc(sizeof(char) * (len + 1))))

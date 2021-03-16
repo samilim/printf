@@ -36,7 +36,6 @@ char            *ft_strdup(const char *src);
 char            *ft_substr(char const *str, unsigned int start, size_t len);
 int             ft_putchar_fd(unsigned char c, int fd);
 //long long int	ft_manage_nb(long long int nb);
-int             ft_check_error(const char *str);
 void            ft_free_ptr(char* ptr);
 int             ft_div_nb(long long int nb);
 
