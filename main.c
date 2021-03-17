@@ -111,6 +111,7 @@ int	main()
 	printf("minus precision 5 width 20 + : --'%-+20.5d'\n", i);
 	printf("minus precision 3 + : -----------'%+.3d'\n", 0);
 	printf("zero precision 7 : --------------'%0.7d'\n", -5);
+	printf("zero precision 7 : --------------'%0.7d'\n", 5);
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7d'\n", -5));
 	printf("minus w 4 prec 5 : --------------'%-*.*d'\n", 4, 5, 10);
 	printf("w 10 prec 21 : ------------------'%*.*d'\n", 10, 21, -10);
