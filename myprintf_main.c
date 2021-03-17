@@ -43,7 +43,6 @@ int	main()
 	ft_printf("[ %-3.s ]\n", NULL);
 	ft_printf("%c",'\n');
 
-
 	ft_printf("MY ft_printf\n");
 	ft_printf("Conversion p :\n");
 	ft_printf("l'addresse de ptr est : %p\n", ptr);

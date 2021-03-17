@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/16 15:41:12 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/17 00:14:16 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 	if (str[i] == 'c')
 		return (ft_conversion_c(va_arg(args, int), 1, flags));
 	if (str[i] == 's')
-		return (ft_conversion_s(flags, args));
+		return (ft_conversion_s(va_arg(args, const char *), flags));
 	if (str[i] == 'p')
 		return (ft_conversion_p(va_arg(args, void *), flags));
 	if (str[i] == 'd' || str[i] == 'i')

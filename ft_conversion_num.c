@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/16 17:07:45 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/17 00:46:27 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,44 @@ static int		ft_count_byte(int nb, t_flags flags)
 	return (count + f);
 }
 
+int				ft_manage_sign(char *buf, int i, int nb, t_flags flags)
+{
+	if (flags.sign && nb >= 0)
+		buf[i++] = '+';
+	if (flags.sign && nb < 0)
+		buf[i++] = '-';
+	return (i);
+}
+
+int				ft_manage_postnb(char *buf, int nb, int nb_len, t_flags flags)
+{
+	int i;
+
+	i = 0;
+	if (flags.space && (nb >= 0))
+		buf[i++] = ' ';
+	if (flags.space && nb < 0)
+		flags.space = 0;
+	if (nb < 0)
+		flags.sign = 1;
+	if (!flags.minus)
+	{
+		while ((i < (flags.width - (nb_len + flags.sign))))
+		{
+			if (flags.zero)
+			{
+				i = ft_manage_sign(buf, i, nb, flags);
+				if (flags.sign && nb < 0)
+					flags.sign = 0;
+				buf[i++] = '0';
+			}
+			else
+				buf[i++] = ' ';
+		}
+	}
+	return (i = ft_manage_sign(buf, i, nb, flags));
+}
+/*
 int				ft_manage_postnb(char *buf, int nb, int nb_len, t_flags flags)
 {
 	int i;
@@ -61,23 +99,25 @@ int				ft_manage_postnb(char *buf, int nb, int nb_len, t_flags flags)
 	if (flags.sign && nb < 0)
 		buf[i++] = '-';
 	return (i);
-}
+}*/
 
 static char		*ft_manage_buffer(int nb, int nb_len, char *buf, t_flags flags)
 {
 	int		prec_i;
 	int		div_nb;
 	int		i;
+	int		len;
 	char	*nb_pos;
 
 	i = 0;
+	len = ft_count_byte(nb, flags);
 	div_nb = ft_div_nb(nb);
 	prec_i = 0;
 	nb_pos = ft_itoa_noneg(nb);
-	if (flags.space && (nb >= 0))
+	/*if (flags.space && (nb >= 0))
 		buf[i++] = ' ';
 	if (flags.space && nb < 0)
-		flags.space = 0;
+		flags.space = 0;*/
 	i = ft_manage_postnb(buf, nb, nb_len, flags);
 	while (((div_nb + prec_i++) < flags.precision))
 		buf[i++] = '0';
@@ -86,7 +126,7 @@ static char		*ft_manage_buffer(int nb, int nb_len, char *buf, t_flags flags)
 	nb_pos = NULL;
 	free(nb_pos);
 	if (flags.minus)
-		while (buf[i])
+		while (i < len)
 			buf[i++] = ' ';
 	return (buf);
 }
