@@ -8,7 +8,7 @@ int	main()
 
 	ptr = "56";
     int i = 42567;
-	ft_printf("Conversion c :\n");
+/*	ft_printf("Conversion c :\n");
 	ft_printf("c est compatible avec les flags - et width\n");
 	ft_printf("width 5 minus : --------------'%-5c'\n", 'X');
 	ft_printf("width 5 sans minus : ---------'%5c'\n", 'X');
@@ -73,7 +73,7 @@ int	main()
 	printf("'%10p %-10p '\n", 0, 0);
 	printf("%c",'\n');
 
-
+*/
 	ft_printf("Conversion i et d :\n");
 	ft_printf("i et d sont compatibles avec les flags '-' | width | '.' | '+' |  ' ' | '0'\n");
 	ft_printf("width 5 minus : -----------------'%-5i'\n", i);
@@ -112,7 +112,7 @@ int	main()
 	ft_printf("w 4 p 2'%0*.*i'\n", 4, 2, 8);
 	ft_printf("%c",'\n');
 
-
+/*
 	ft_printf("Conversion u :\n");
 	ft_printf("u est compatibles avec les flags '-' | width | '.' | '0'\n");
 	ft_printf("width 5 minus : -----------------'%-5u'\n", i);
@@ -173,11 +173,11 @@ int	main()
 	ft_printf("minus precision 3 : -------------'%.3x'\n", 0);
 	ft_printf("zero precision 7 : --------------'%#0.7X'\n", -5);
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
-	ft_printf("%c",'\n');
-
-	/*while (1)
-	{};*/
-	return 0;
+	ft_printf("%c",'\n');*/
+/*
+	while (1)
+	{};
+	return 0;*/
 }
 
 //gcc ft_conversion_c.c ft_manage_flags.c ft_printf.c ft_printf_utils.c ft_printf.h myprintf_main.c ft_conversion_s.c ft_itoa.c ft_conversion_p.c ft_conversion_num.c ft_conversion_u.c ft_llitoa.c ft_conversion_xlow.c ft_conversion_Xup.c ft_check_error.c && ./a.out

@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/16 14:22:08 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:21:10 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,7 @@ t_flags ft_manage_precision(const char* str, int i, t_flags flags, va_list args)
 	char	*save_digit;
 	int		j;
 
-	save_digit = malloc(sizeof(char) * (ft_strlen(str) + 1));
-	if (!save_digit)
+	if (!(save_digit = malloc(sizeof(char) * (ft_strlen(str) + 1))))
 	{
 		flags.precision = 0;
 		return (flags);
@@ -96,9 +95,11 @@ t_flags ft_manage_precision(const char* str, int i, t_flags flags, va_list args)
 		i++;
 		while (ft_isdigit(str[i]))
 			save_digit[j++] = str[i++];
+		save_digit[j]= '\0';
 		flags.precision = ft_atoi(save_digit);
 	}
 	free(save_digit);
+	//printf("prec = %d\n",flags.precision);
 	return (flags);
 }
 

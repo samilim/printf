@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:59:35 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/17 00:59:18 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/17 15:19:48 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	ft_div_nb(long long int nb)
 
 int	ft_precision_zero(int len, t_flags flags)
 {
-	/*int len;*/
-
 	len = flags.width;
 	while (flags.width--)
 		write(1, " ", 1);
