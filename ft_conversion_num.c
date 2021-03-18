@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/17 17:09:31 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/18 15:19:47 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,12 +137,13 @@ int				ft_conversion_num(int nb, int fd, t_flags flags)
 	int		nb_len;
 	char	*buf;
 
+	len = 0;
 	if (flags.precision == 0 && nb == 0)
 		return (ft_precision_zero(len, flags));
 	if (flags.precision != (-1))
 		flags = ft_cancel_zero(flags);
 	len = ft_count_byte(nb, flags);
-	printf("len = %d\n",len);
+	//printf("len = %d\n",len);
 	if (!(buf = malloc(sizeof(char) * (len + 1))))
 		return (0);
 	buf[len] = '\0';

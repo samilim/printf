@@ -40,5 +40,6 @@ int             ft_precision_zero(int len, t_flags flags);
 //long long int	ft_manage_nb(long long int nb);
 void            ft_free_ptr(char* ptr);
 int             ft_div_nb(long long int nb);
+char            *ft_convert_low_hex(long long int nb, char *buf, int i);
 
 #endif

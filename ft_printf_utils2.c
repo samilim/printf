@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:59:35 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/17 15:19:48 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/18 16:40:05 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,21 @@ int	ft_precision_zero(int len, t_flags flags)
 	while (flags.width--)
 		write(1, " ", 1);
 	return (len);
+}
+
+char	*ft_convert_low_hex(long long int nb, char *buf, int i)
+{
+	const char		*base_hex;
+
+	base_hex = "0123456789abcdef";
+
+	while (nb >= 16)
+	{
+		buf[i] = base_hex[(nb % 16)];
+		nb = nb / 16;
+		i++;
+	}
+	buf[i] = base_hex[(nb % 16)];
+	buf[i + 1] = '\0';
+	return (buf);
 }
