@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_xlow.c                               :+:      :+:    :+:   */
+/*   ft_conversion_Xup.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:27:05 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/19 16:01:41 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/19 16:18:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char *buf, t_flags flags)
 	if (flags.prefix)
 	{
 		buf[i++] = '0';
-		buf[i++] = 'x';
+		buf[i++] = 'X';
 	}
 	while (*nb_hex)
 		buf[i++] = *nb_hex++;
@@ -97,7 +97,7 @@ static char		*ft_nb_hex(long long int nb)
 		j = j / 16;
 	if (!(buf = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	buf = ft_convert_low_hex(nb, buf);
+	buf = ft_convert_up_hex(nb, buf);
 	j = 0;
 	if (!(res = malloc(sizeof(char) * (ft_strlen(buf) + 1))))
 		return (NULL);
@@ -109,7 +109,7 @@ static char		*ft_nb_hex(long long int nb)
 	return (res);
 }
 
-int				ft_conversion_xlow(long long int nb, t_flags flags)
+int				ft_conversion_xup(long long int nb, t_flags flags)
 {
 	int		len;
 	char	*buf;

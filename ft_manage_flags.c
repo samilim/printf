@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_manage_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/17 16:21:10 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/19 16:26:34 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char    ft_is_type(const char *str, int i)
-{
-	const char* types;
-	int j;
-
-	types = "cspdiuxX%";
-	j = 0;
-	while (types[j])
-	{
-		if (str[i] == types[j])
-			return (1);
-		j++;
-	}
-	return (0);
-}
 
 t_flags	ft_manage_minus(t_flags flags)
 {
@@ -35,7 +19,7 @@ t_flags	ft_manage_minus(t_flags flags)
 	return (flags);
 }
 
-t_flags	ft_manage_width(const char* str, int i, t_flags flags, va_list args)
+t_flags	ft_manage_width(const char *str, int i, t_flags flags, va_list args)
 {
 	char	*save_digit;
 	int		j;
@@ -60,18 +44,15 @@ t_flags	ft_manage_width(const char* str, int i, t_flags flags, va_list args)
 		return (flags);
 	}
 	j = 0;
-
 	while (ft_isdigit(str[i]))
-	{
 		save_digit[j++] = str[i++];
-	}
 	save_digit[j] = '\0';
 	flags.width = ft_atoi(save_digit);
 	free(save_digit);
 	return (flags);
 }
 
-t_flags ft_manage_precision(const char* str, int i, t_flags flags, va_list args)
+t_flags	ft_manage_precision(const char* str, int i, t_flags flags, va_list args)
 {
 	char	*save_digit;
 	int		j;
@@ -95,11 +76,10 @@ t_flags ft_manage_precision(const char* str, int i, t_flags flags, va_list args)
 		i++;
 		while (ft_isdigit(str[i]))
 			save_digit[j++] = str[i++];
-		save_digit[j]= '\0';
+		save_digit[j] = '\0';
 		flags.precision = ft_atoi(save_digit);
 	}
 	free(save_digit);
-	//printf("prec = %d\n",flags.precision);
 	return (flags);
 }
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 21:25:57 by user42            #+#    #+#             */
-/*   Updated: 2021/03/16 16:01:14 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/19 16:31:04 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strdup(const char *src)
+char			*ft_strdup(const char *src)
 {
 	char	*dest;
 	int		slen;
@@ -34,11 +34,11 @@ char	*ft_strdup(const char *src)
 	return (dest);
 }
 
-long long int		ft_atoi(const char *nb)
+long long int	ft_atoi(const char *nb)
 {
 	unsigned int	i;
 	int				signe;
-	long long int				nmb;
+	long long int	nmb;
 
 	signe = 1;
 	i = 0;
@@ -59,7 +59,7 @@ long long int		ft_atoi(const char *nb)
 	return (nmb * signe);
 }
 
-size_t	ft_strlen(const char *s)
+size_t			ft_strlen(const char *s)
 {
 	unsigned int i;
 
@@ -69,14 +69,14 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int		ft_isdigit(int c)
+int				ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
 
-char	*ft_substr(char const *str, unsigned int start, size_t len)
+char			*ft_substr(char const *str, unsigned int start, size_t len)
 {
 	unsigned int	i;
 	char			*res;

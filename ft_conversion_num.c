@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/18 15:19:47 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/19 16:17:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static int				ft_manage_sign(char *buf, int i, int nb, t_flags flags)
 	return (i);
 }
 
-static int				ft_manage_postnb(char *buf, int nb, int nb_len, t_flags flags)
+static int				ft_manage_postnb(char *buf, int nb,
+int nb_len, t_flags flags)
 {
 	int i;
 
@@ -69,38 +70,7 @@ static int				ft_manage_postnb(char *buf, int nb, int nb_len, t_flags flags)
 	}
 	return (i = ft_manage_sign(buf, i, nb, flags));
 }
-/*
-int				ft_manage_postnb(char *buf, int nb, int nb_len, t_flags flags)
-{
-	int i;
 
-	i = 0;
-	if (nb < 0)
-		flags.sign = 1;
-	if (!flags.minus)
-	{
-		while ((i < (flags.width - (nb_len + flags.sign))))
-		{
-			if (flags.zero)
-			{
-				if (flags.sign && nb < 0)
-				{
-					buf[i++] = '-';
-					flags.sign = 0;
-				}
-				buf[i++] = '0';
-			}
-			else
-				buf[i++] = ' ';
-		}
-	}
-	if (flags.sign && nb >= 0)
-		buf[i++] = '+';
-	if (flags.sign && nb < 0)
-		buf[i++] = '-';
-	return (i);
-}
-*/
 static char		*ft_manage_buffer(int nb, int nb_len, char *buf, t_flags flags)
 {
 	int		prec_i;
@@ -116,8 +86,8 @@ static char		*ft_manage_buffer(int nb, int nb_len, char *buf, t_flags flags)
 	nb_pos = ft_itoa_noneg(nb);
 	if (flags.space && (nb >= 0))
 		buf[i++] = ' ';
-	if (flags.space && nb < 0)
-		flags.space = 0;
+	/*if (flags.space && nb < 0)
+		flags.space = 0;*/
 	i = ft_manage_postnb(buf, nb, nb_len, flags);
 	while (((div_nb + prec_i++) < flags.precision))
 		buf[i++] = '0';
@@ -143,7 +113,6 @@ int				ft_conversion_num(int nb, int fd, t_flags flags)
 	if (flags.precision != (-1))
 		flags = ft_cancel_zero(flags);
 	len = ft_count_byte(nb, flags);
-	//printf("len = %d\n",len);
 	if (!(buf = malloc(sizeof(char) * (len + 1))))
 		return (0);
 	buf[len] = '\0';
