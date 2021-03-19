@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/17 00:14:16 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/19 01:27:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,6 @@ int		ft_manage_conversions(const char *str, int i, va_list args, t_flags flags)
 		return (ft_putchar_fd('%', 1));
 	else
 		return (0);
-}
-
-void	ft_free_ptr(char* ptr)
-{
-	ptr = NULL;
-	free (ptr);
 }
 
 int             ft_printf(const char *str, ...)

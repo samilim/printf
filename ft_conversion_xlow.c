@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_xlow.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:27:05 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/18 16:45:42 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/19 01:24:28 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,74 +81,30 @@ char *buf, t_flags flags)
 			buf[i++] = ' ';
 	return (buf);
 }
-/*
+
 static char		*ft_nb_hex(long long int nb)
 {
 	int				i;
 	long long int	j;
-	const char		*base_hex;
 	char			*buf;
 	char			*res;
 
-	i = 0;
-	base_hex = "0123456789abcdef";
+	i = 1;
 	if (nb < 0)
 		nb *= (-1);
 	j = nb;
-	while (j >= 16)
-	{
+	while (j >= 16 && i++)
 		j = j / 16;
-		i++;
-	}
-	if (!(buf = malloc(sizeof(char) * (j + 2))))
+	if (!(buf = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	i = 0;
+	buf = ft_convert_low_hex(nb, buf);
 	j = 0;
-	while (nb >= 16)
-	{
-		buf[i] = base_hex[(nb % 16)];
-		nb = nb / 16;
-		i++;
-	}
-	buf[i] = base_hex[(nb % 16)];
-	buf[i + 1] = '\0';
 	if (!(res = malloc(sizeof(char) * (ft_strlen(buf) + 1))))
 		return (NULL);
+	i = ft_strlen(buf) - 1;
 	while (i >= 0)
 		res[j++] = buf[i--];
-	res[j++] = '\0';
-	free(buf);
-	return (res);
-}
-*/
-
-static char		*ft_nb_hex(long long int nb)
-{
-	int				i;
-	long long int	j;
-	char			*buf;
-	char			*res;
-
-	i = 0;
-	if (nb < 0)
-		nb *= (-1);
-	j = nb;
-	while (j >= 16)
-	{
-		j = j / 16;
-		i++;
-	}
-	i++;
-	if (!(buf = malloc(sizeof(char) * (i + 2))))
-		return (NULL);
-	i = 0;
-	buf = ft_convert_low_hex(nb, buf, i);
-	i = ft_strlen(buf);
-	if (!(res = malloc(sizeof(char) * (i + 1))))
-		return (NULL);
-	while (i >= 0)
-		*res++ = buf[i--];
-	*res = '\0';
+	res[j] = '\0';
 	free(buf);
 	return (res);
 }
@@ -170,6 +126,7 @@ int				ft_conversion_x(long long int nb, t_flags flags)
 	buf = ft_manage_buffer(nb, nb_hex, buf, flags);
 	write(1, buf, len);
 	free(buf);
+	nb_hex = NULL;
 	free(nb_hex);
 	return (len);
 }

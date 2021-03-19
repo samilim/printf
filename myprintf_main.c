@@ -113,7 +113,7 @@ int	main()
 	ft_printf("w 4 p 2'%0*.*i'\n", 4, 2, 8);
 	ft_printf("%c",'\n');
 
-/*
+
 	ft_printf("Conversion u :\n");
 	ft_printf("u est compatibles avec les flags '-' | width | '.' | '0'\n");
 	ft_printf("width 5 minus : -----------------'%-5u'\n", i);
@@ -174,7 +174,7 @@ int	main()
 	ft_printf("minus precision 3 : -------------'%.3x'\n", 0);
 	ft_printf("zero precision 7 : --------------'%#0.7X'\n", -5);
 	ft_printf("%d\n", ft_printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
-	ft_printf("%c",'\n');*/
+	ft_printf("%c",'\n');
 /*
 	while (1)
 	{};

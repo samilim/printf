@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 15:59:35 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/18 16:40:05 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/19 01:21:41 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,15 @@ int	ft_precision_zero(int len, t_flags flags)
 	return (len);
 }
 
-char	*ft_convert_low_hex(long long int nb, char *buf, int i)
+char	*ft_convert_low_hex(long long int nb, char *buf)
 {
 	const char		*base_hex;
+	int i;
 
 	base_hex = "0123456789abcdef";
-
+	/*if (!(buf = malloc(sizeof(char) * (i + 1))))
+		return (NULL);*/
+	i = 0;
 	while (nb >= 16)
 	{
 		buf[i] = base_hex[(nb % 16)];

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_Xup.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 23:05:03 by user42            #+#    #+#             */
-/*   Updated: 2021/03/13 15:50:51 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/19 00:27:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,8 +141,8 @@ int ft_conversion_X(long long int nb, t_flags flags)
 	buf[len] = '\0';
 	if (flags.precision > nb_len)
 		nb_len = flags.precision;
-	else
-		nb_len = ft_strlen(nb_hex);
+	/*else
+		nb_len = ft_strlen(nb_hex);*/
 	buf = ft_manage_buffer(nb, nb_hex, nb_len, buf, flags);
 	write (1, buf, len);
 	free (buf);
