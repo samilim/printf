@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_llitoa_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/23 19:22:50 by user42            #+#    #+#             */
-/*   Updated: 2021/03/20 23:37:45 by user42           ###   ########.fr       */
+/*   Created: 2021/03/20 23:05:26 by user42            #+#    #+#             */
+/*   Updated: 2021/03/20 23:17:12 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		ft_count(int n)
+static int		ft_count(long long int n)
 {
 	int i;
 
@@ -30,7 +30,7 @@ static int		ft_count(int n)
 	return (i);
 }
 
-static char		*ft_create_nb(char *nb, int n, unsigned int i,
+static char		*ft_create_nb(char *nb, long long int n, unsigned int i,
 				unsigned int count)
 {
 	unsigned int len;
@@ -45,14 +45,12 @@ static char		*ft_create_nb(char *nb, int n, unsigned int i,
 	return (nb);
 }
 
-char			*ft_itoa(int n)
+char			*ft_llitoa(long long int n)
 {
 	unsigned int	i;
 	unsigned int	count;
 	char			*nb;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	count = ft_count(n);
 	if (!(nb = (char *)malloc(sizeof(char) * (count + 1))))
 		return (NULL);
@@ -67,14 +65,12 @@ char			*ft_itoa(int n)
 	return (ft_create_nb(nb, n, i, count));
 }
 
-char			*ft_itoa_noneg(int n)
+char			*ft_llitoa_noneg(long long int n)
 {
 	unsigned int	i;
 	unsigned int	count;
 	char			*nb;
 
-	if (n == -2147483648)
-		return (ft_strdup("2147483648"));
 	count = ft_count(n);
 	if (!(nb = (char *)malloc(sizeof(char) * (count + 1))))
 		return (NULL);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_pct.c                                :+:      :+:    :+:   */
+/*   ft_conversion_pct_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/20 16:58:20 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/20 17:01:06 by salimon          ###   ########.fr       */
+/*   Created: 2021/03/20 22:55:08 by user42            #+#    #+#             */
+/*   Updated: 2021/03/20 23:12:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int		ft_conversion_pct(t_flags flags)
 		write(1, "%", 1);
 	while (count < flags.width)
 	{
-        if(flags.zero)
-            write(1, "0", 1);
-        else
-            write(1, " ", 1);
+		if (flags.zero)
+			write(1, "0", 1);
+		else
+			write(1, " ", 1);
 		count++;
 	}
 	if (!flags.minus)

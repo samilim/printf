@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 16:33:32 by user42            #+#    #+#             */
-/*   Updated: 2021/03/20 17:01:26 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/20 23:53:07 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int				ft_printf(const char *str, ...);
 char			ft_is_type(const char *str, int i);
 t_flags			ft_manage_flags(const char *str, int i,
 t_flags flags, va_list args);
-t_flags			ft_manage_width(const char *str, int i, t_flags flags, va_list args);
+t_flags			ft_manage_width(const char *str, int i,
+t_flags flags, va_list args);
 int				ft_conversion_c(unsigned char c, int fd, t_flags flags);
 int				ft_conversion_s(const char *s, t_flags flags);
 int				ft_conversion_p(void *ptr, t_flags flags);

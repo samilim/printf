@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:11:29 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/19 23:32:27 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/20 23:45:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static long long int	ft_manage_nb(long long int nb)
 {
-	/*unsigned */long long int	res;
-	char					*buf;
-	char					*buf_without_zero;
-	int						i;
+	long long int	res;
+	char			*buf;
+	char			*buf_without_zero;
+	int				i;
 
 	i = 0;
 	buf = ft_llitoa(nb);
@@ -30,7 +30,7 @@ static long long int	ft_manage_nb(long long int nb)
 	return (res);
 }
 
-static int		ft_count_byte(long long int nb, t_flags flags)
+static int				ft_count_byte(long long int nb, t_flags flags)
 {
 	int count;
 
@@ -44,7 +44,7 @@ static int		ft_count_byte(long long int nb, t_flags flags)
 	return (count);
 }
 
-static int		ft_manage_postnb(char *buf, int i,
+static int				ft_manage_postnb(char *buf, int i,
 long long int nb, t_flags flags)
 {
 	int nb_len;
@@ -67,7 +67,7 @@ long long int nb, t_flags flags)
 	return (i);
 }
 
-static char		*ft_manage_buffer(long long int nb, char *nb_pos,
+static char				*ft_manage_buffer(long long int nb, char *nb_pos,
 char *buf, t_flags flags)
 {
 	int i;
@@ -83,8 +83,9 @@ char *buf, t_flags flags)
 		buf[i++] = '0';
 		prec_i++;
 	}
-	while (*nb_pos)
-		buf[i++] = *nb_pos++;
+	prec_i = 0;
+	while (nb_pos[prec_i])
+		buf[i++] = nb_pos[prec_i++];
 	if (flags.minus)
 		while (i < len)
 			buf[i++] = ' ';
@@ -92,7 +93,7 @@ char *buf, t_flags flags)
 	return (buf);
 }
 
-int				ft_conversion_u(long long int nb, int fd, t_flags flags)
+int						ft_conversion_u(long long int nb, int fd, t_flags flags)
 {
 	int		len;
 	char	*buf;
@@ -104,7 +105,7 @@ int				ft_conversion_u(long long int nb, int fd, t_flags flags)
 	if (flags.precision != (-1))
 		flags = ft_cancel_zero(flags);
 	if (nb < 0)
-		nb = (4294967295 + nb + 1); //apres manage nb
+		nb = (4294967295 + nb + 1);
 	nb = ft_manage_nb(nb);
 	nb_pos = ft_llitoa(nb);
 	len = ft_count_byte(nb, flags);

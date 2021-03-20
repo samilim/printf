@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_p.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:06:56 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/20 17:55:23 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/20 23:42:00 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_addr_len(unsigned long long int addr)
+int			ft_addr_len(unsigned long long int addr)
 {
 	int i;
 
@@ -25,7 +25,7 @@ int		ft_addr_len(unsigned long long int addr)
 	return (i);
 }
 
-char	*ft_putaddr(unsigned long long int addr)
+char		*ft_putaddr(unsigned long long int addr)
 {
 	int			i;
 	const char	*base_hex;
@@ -44,14 +44,27 @@ char	*ft_putaddr(unsigned long long int addr)
 	return (address);
 }
 
-void	ft_write_address(/*void *ptr, */char *address, int len)
+void		ft_write_address(char *address, int len)
 {
 	write(1, "0x", 2);
 	write(1, address, len);
 }
 
+static int	ft_precision_ptr(int count, t_flags flags)
+{
+	if (flags.minus)
+		write(1, "0x", 2);
+	while (count + 2 < flags.width)
+	{
+		write(1, " ", 1);
+		count++;
+	}
+	if (!flags.minus)
+		write(1, "0x", 2);
+	return (count + 2);
+}
 
-int		ft_conversion_p(void *ptr, t_flags flags)
+int			ft_conversion_p(void *ptr, t_flags flags)
 {
 	unsigned long long int	addr;
 	int						count;
@@ -60,30 +73,19 @@ int		ft_conversion_p(void *ptr, t_flags flags)
 
 	count = 0;
 	if (flags.precision == 0 && ptr == NULL)
-	{
-		if (flags.minus)
-			write(1, "0x", 2);
-		while (count + 2 < flags.width)
-		{
-			write(1, " ", 1);
-			count++;
-		}
-		if (!flags.minus)
-			write(1, "0x", 2);
-		return (count + 2);
-	}
+		return (ft_precision_ptr(count, flags));
 	addr = (unsigned long long int)ptr;
 	address = ft_putaddr(addr);
 	len = ft_strlen(address);
 	if (flags.minus)
-		ft_write_address(/*ptr, */address, len);
+		ft_write_address(address, len);
 	while (flags.width > 0 && ((count + len + 2) < flags.width))
 	{
 		write(1, " ", 1);
 		count++;
 	}
 	if (!flags.minus)
-		ft_write_address(/*ptr, */address, len);
+		ft_write_address(address, len);
 	free(address);
 	return (count + len + 2);
 }
