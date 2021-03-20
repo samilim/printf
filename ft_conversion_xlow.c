@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_xlow.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:27:05 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/19 23:31:48 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/20 17:38:12 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,9 @@ char *buf, t_flags flags)
 		buf[i++] = '0';
 		buf[i++] = 'x';
 	}
-	while (*nb_hex)
-		buf[i++] = *nb_hex++;
+	nb_len = 0;
+	while (nb_hex[nb_len])
+		buf[i++] = nb_hex[nb_len++];
 	if (flags.minus)
 		while (i <= len)
 			buf[i++] = ' ';
@@ -128,7 +129,6 @@ int				ft_conversion_xlow(long long int nb, t_flags flags)
 	buf = ft_manage_buffer(nb, nb_hex, buf, flags);
 	write(1, buf, len);
 	free(buf);
-	nb_hex = NULL;
 	free(nb_hex);
 	return (len);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 16:33:32 by user42            #+#    #+#             */
-/*   Updated: 2021/03/19 23:55:20 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/20 17:01:26 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int				ft_conversion_u(long long int nb, int fd, t_flags flags);
 int				ft_conversion_xlow(long long int nb, t_flags flags);
 int				ft_conversion_xup(long long int nb, t_flags flags);
 int				ft_conversion_ll(long long int nb, int fd, t_flags flags);
+int				ft_conversion_pct(t_flags flags);
 size_t			ft_strlen(const char *s);
 long long int	ft_atoi(const char *nb);
 char			*ft_itoa(int n);

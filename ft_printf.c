@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/20 00:13:51 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/20 17:04:07 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ va_list args, t_flags flags)
 	if (str[i] == 'X')
 		return (ft_conversion_xup(va_arg(args, unsigned int), flags));
 	if (str[i] == '%')
-		return (ft_putchar_fd('%', 1));
+		return (ft_conversion_pct(flags));
+		//return (ft_putchar_fd('%', 1));
 	else
 		return (0);
 }
