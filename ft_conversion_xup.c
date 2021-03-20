@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_conversion_Xup.c                                :+:      :+:    :+:   */
+/*   ft_conversion_xup.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 16:27:05 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/19 16:18:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/19 23:32:25 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ int				ft_conversion_xup(long long int nb, t_flags flags)
 	len = 0;
 	if (flags.precision == 0 && nb == 0)
 		return (ft_precision_zero(len, flags));
+	if (flags.precision != (-1))
+		flags = ft_cancel_zero(flags);
 	nb_hex = ft_nb_hex(nb);
 	len = ft_count_byte(nb, nb_hex, flags);
 	if (!(buf = malloc(sizeof(char) * (len + 1))))

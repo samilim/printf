@@ -18,9 +18,11 @@ SRCS 		= ft_conversion_c.c \
 			ft_itoa.c\
 			ft_llitoa.c \
 			ft_manage_flags.c \
+			ft_manage_width.c \
 			ft_printf_utils.c \
 			ft_printf_utils2.c \
 			ft_printf.c \
+			ft_conversion_ll.c \
 
 SRCS_BONUS	= ft_conversion_c.c \
 			ft_conversion_num.c \
@@ -32,9 +34,11 @@ SRCS_BONUS	= ft_conversion_c.c \
 			ft_itoa.c\
 			ft_llitoa.c \
 			ft_manage_flags.c \
+			ft_manage_width.c \
 			ft_printf_utils.c \
 			ft_printf_utils2.c \
 			ft_printf.c \
+			ft_conversion_ll.c \
 
 SRCS_PATH	= srcs/
 INC_PATH	= includes

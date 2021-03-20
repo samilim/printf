@@ -184,6 +184,7 @@ int	main()
 	printf("%d\n", printf("width 10 precision 7 zero : -----'%010.7X'\n", -5));
 	printf("%c",'\n');
 	//printf("width %d minus : ----%s------------'%n'\n", 25, "tirets", ptr);
+	printf("'%llx'\n", 'c');
 	return 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 14:12:16 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/19 16:42:55 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/20 00:13:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ va_list args, t_flags flags)
 		return (ft_conversion_s(va_arg(args, const char *), flags));
 	if (str[i] == 'p')
 		return (ft_conversion_p(va_arg(args, void *), flags));
+	if ((str[i] == 'd' || str[i] == 'i') && (str[i - 1] == 'l'))
+		return (ft_conversion_ll((long long int)va_arg(args, int), 1, flags));
 	if (str[i] == 'd' || str[i] == 'i')
 		return (ft_conversion_num(va_arg(args, int), 1, flags));
 	if (str[i] == 'u')
