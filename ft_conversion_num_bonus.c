@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 23:44:59 by user42            #+#    #+#             */
-/*   Updated: 2021/03/21 16:32:57 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/21 17:16:39 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int nb_len, t_flags flags)
 		flags.sign = 1;
 	if (!flags.minus)
 	{
-		while ((i < (flags.width - (nb_len + flags.sign))))
+		while ((i < (flags.width - (nb_len/* + flags.sign*/))))
 		{
 			if (flags.zero)
 			{
@@ -106,6 +106,8 @@ int				ft_conversion_num(int nb, int fd, t_flags flags)
 	char	*buf;
 
 	len = 0;
+	if (flags.sign && nb >= 0)
+		flags.plus = 1;
 	if (flags.precision == 0 && nb == 0)
 		return (ft_precision_zero(len, flags));
 	if (flags.precision != (-1))

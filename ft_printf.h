@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 16:33:32 by user42            #+#    #+#             */
-/*   Updated: 2021/03/20 23:53:07 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/21 16:41:24 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef	struct	s_flags
 	int prefix;
 	int width;
 	int precision;
+	int plus;
 }				t_flags;
 
 int				ft_printf(const char *str, ...);

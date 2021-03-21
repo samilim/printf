@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 23:06:32 by user42            #+#    #+#             */
-/*   Updated: 2021/03/21 16:32:45 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/21 17:02:17 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ int		ft_div_nb(long long int nb)
 int		ft_precision_zero(int len, t_flags flags)
 {
 	len = flags.width;
-	if (flags.sign)
+	if (flags.sign /*&& flags.plus*/)
 	{
 		write(1, "+", 1);
+		if (flags.plus && !flags.minus)
+			len++;
 		flags.width--;
 	}
 	while ((flags.width--) > 0)

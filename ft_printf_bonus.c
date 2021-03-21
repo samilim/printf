@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 23:06:13 by user42            #+#    #+#             */
-/*   Updated: 2021/03/20 23:39:39 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/21 16:41:00 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_flags	ft_init_flags(t_flags flags)
 	flags.prefix = 0;
 	flags.width = 0;
 	flags.precision = -1;
+	flags.plus = 0;
 	return (flags);
 }
 
