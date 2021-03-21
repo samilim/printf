@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_manage_flags.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 12:35:33 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/19 23:41:05 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/21 16:14:29 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,6 @@ t_flags	ft_manage_flags(const char *str, int i, t_flags flags, va_list args)
 			while (ft_isdigit(str[i + 1]))
 				i++;
 		}
-		else if (str[i] == 'h' || str[i] == 'l')
-			while (str[i] == 'h' || str[i] == 'l')
-				i++;
 		i++;
 	}
 	return (flags);
