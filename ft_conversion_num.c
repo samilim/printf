@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_num.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 14:09:15 by salimon           #+#    #+#             */
-/*   Updated: 2021/03/20 23:52:15 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/26 17:37:55 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static int		ft_count_byte(int nb, t_flags flags)
 
 static int		ft_manage_sign(char *buf, int i, int nb, t_flags flags)
 {
+	if (nb < 0 && !flags.zero && flags.sign && !flags.minus && buf[i - 2])//
+		i--;//
 	if (flags.sign && nb >= 0)
 		buf[i++] = '+';
 	if (flags.sign && nb < 0)

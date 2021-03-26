@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_ll_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 22:51:24 by user42            #+#    #+#             */
-/*   Updated: 2021/03/20 23:32:24 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/26 17:15:12 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int nb_len, t_flags flags)
 			if (flags.zero)
 			{
 				i = ft_manage_sign(buf, i, nb, flags);
-				if (flags.sign && nb < 0)
+				if ((flags.sign && nb < 0) || (flags.sign && nb >= 0))
 					flags.sign = 0;
 				buf[i++] = '0';
 			}

@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 23:44:59 by user42            #+#    #+#             */
-/*   Updated: 2021/03/21 17:16:39 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/26 17:27:00 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static int		ft_count_byte(int nb, t_flags flags)
 
 static int		ft_manage_sign(char *buf, int i, int nb, t_flags flags)
 {
+	if (nb < 0 && !flags.zero && flags.sign && !flags.minus && buf[i - 2])//
+		i--;//
 	if (flags.sign && nb >= 0)
 		buf[i++] = '+';
 	if (flags.sign && nb < 0)
@@ -55,12 +57,12 @@ int nb_len, t_flags flags)
 		flags.sign = 1;
 	if (!flags.minus)
 	{
-		while ((i < (flags.width - (nb_len/* + flags.sign*/))))
+		while ((i < (flags.width - (nb_len))))
 		{
 			if (flags.zero)
 			{
 				i = ft_manage_sign(buf, i, nb, flags);
-				if (flags.sign && nb < 0)
+				if ((flags.sign && nb < 0) || (flags.sign && nb >= 0))//
 					flags.sign = 0;
 				buf[i++] = '0';
 			}
@@ -84,6 +86,8 @@ static char		*ft_manage_buffer(int nb, int nb_len, char *buf, t_flags flags)
 	div_nb = ft_div_nb(nb);
 	prec_i = 0;
 	nb_pos = ft_itoa_noneg(nb);
+	if (nb >= 0 && flags.sign)
+		flags.plus = 1;//
 	if (flags.space && (nb >= 0))
 		buf[i++] = ' ';
 	i = ft_manage_postnb(buf, nb, nb_len, flags);
@@ -107,7 +111,7 @@ int				ft_conversion_num(int nb, int fd, t_flags flags)
 
 	len = 0;
 	if (flags.sign && nb >= 0)
-		flags.plus = 1;
+		flags.plus = 1;//
 	if (flags.precision == 0 && nb == 0)
 		return (ft_precision_zero(len, flags));
 	if (flags.precision != (-1))
