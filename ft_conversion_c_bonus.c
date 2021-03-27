@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_conversion_c_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 22:47:38 by user42            #+#    #+#             */
-/*   Updated: 2021/03/20 22:47:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/03/27 15:24:45 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,11 @@ int		ft_conversion_c(unsigned char c, int fd, t_flags flags)
 	if (!flags.minus)
 		write(fd, &c, 1);
 	return (count);
+}
+
+t_flags	ft_flag_plus(int nb, t_flags flags)
+{
+	if (nb >= 0 && flags.sign)
+		flags.plus = 1;
+	return (flags);
 }

@@ -6,7 +6,7 @@
 /*   By: salimon <salimon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 16:33:32 by user42            #+#    #+#             */
-/*   Updated: 2021/03/21 16:41:24 by salimon          ###   ########.fr       */
+/*   Updated: 2021/03/27 15:23:37 by salimon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int				ft_precision_zero(int len, t_flags flags);
 int				ft_div_nb(long long int nb);
 char			*ft_convert_low_hex(long long int nb, char *buf);
 char			*ft_convert_up_hex(long long int nb, char *buf);
+t_flags			ft_flag_plus(int nb, t_flags flags);
 
 #endif
